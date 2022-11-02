@@ -627,8 +627,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 6.2973626e-11, z: -1.2595286e-11, w: 1}
-  m_LocalPosition: {x: -0.0000000012594725, y: 1.5, z: -10}
+  m_LocalRotation: {x: 0, y: 6.359713e-11, z: -1.2719992e-11, w: 1}
+  m_LocalPosition: {x: -0.0000000012719426, y: 1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1082,8 +1082,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tutorials, prompts, and non-diegetic text will be displayed up here.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd13c75784e27c54c9bae85b9b1f9063, type: 2}
-  m_sharedMaterial: {fileID: 7725094413544853809, guid: fd13c75784e27c54c9bae85b9b1f9063, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1107,8 +1107,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1326,7 +1326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.1101688e-22, z: -1.5550152e-21}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.1412706e-22, z: -1.5705654e-21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1432,10 +1432,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dialogue text, descriptions, internal monologues, and any other diegetic
     text will be displayed down here. As currently laid out, this can fit any message
-    up to three rows no in length.
+    up to three rows in length.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd13c75784e27c54c9bae85b9b1f9063, type: 2}
-  m_sharedMaterial: {fileID: 7725094413544853809, guid: fd13c75784e27c54c9bae85b9b1f9063, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1459,8 +1459,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
