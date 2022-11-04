@@ -49,7 +49,7 @@ public class ColorSetter : MonoBehaviour
     {
         float h, s, v;
         Color.RGBToHSV(new Color(1 - myColor.r, 1 - myColor.g, 1 - myColor.b), out h, out s, out v);
-        return Color.HSVToRGB(h, s, 0.75f);
+        return Color.HSVToRGB(h, s, 0.85f);
     }
 
     private void OnValidate()
