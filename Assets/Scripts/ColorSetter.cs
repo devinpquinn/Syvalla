@@ -10,6 +10,8 @@ public class ColorSetter : MonoBehaviour
 
     public List<TextMeshProUGUI> texts;
 
+    public List<SpriteRenderer> inverseSprites;
+
     public static ColorSetter colorSetter;
     public static ColorSetter Instance { get { return colorSetter; } }
 
@@ -36,6 +38,18 @@ public class ColorSetter : MonoBehaviour
         {
             t.color = new Color(newColor.r, newColor.g, newColor.b, t.color.a);
         }
+
+        foreach(SpriteRenderer s in inverseSprites)
+        {
+            s.color = InvertColor(newColor);
+        }
+    }
+
+    public Color InvertColor(Color myColor)
+    {
+        float h, s, v;
+        Color.RGBToHSV(new Color(1 - myColor.r, 1 - myColor.g, 1 - myColor.b), out h, out s, out v);
+        return Color.HSVToRGB(h, s, 0.75f);
     }
 
     private void OnValidate()
