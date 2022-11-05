@@ -6,11 +6,9 @@ using TMPro;
 
 public class ColorSetter : MonoBehaviour
 {
-    public Light2D enviroLight;
+    public List<GameObject> primary;
 
-    public List<TextMeshProUGUI> texts;
-
-    public List<SpriteRenderer> inverseSprites;
+    public List<GameObject> complementary;
 
     public static ColorSetter colorSetter;
     public static ColorSetter Instance { get { return colorSetter; } }
@@ -32,16 +30,37 @@ public class ColorSetter : MonoBehaviour
 
     public void UpdateColor(Color newColor)
     {
-        enviroLight.color = new Color(newColor.r, newColor.g, newColor.b, enviroLight.color.a);
-
-        foreach(TextMeshProUGUI t in texts)
+        foreach(GameObject x in primary)
         {
-            t.color = new Color(newColor.r, newColor.g, newColor.b, t.color.a);
+            if(x.GetComponent<Light2D>() != null)
+            {
+                x.GetComponent<Light2D>().color = new Color(newColor.r, newColor.g, newColor.b);
+            }
+            else if (x.GetComponent<TextMeshProUGUI>() != null)
+            {
+                x.GetComponent<TextMeshProUGUI>().color = new Color(newColor.r, newColor.g, newColor.b, x.GetComponent<TextMeshProUGUI>().color.a);
+            }
+            else if (x.GetComponent<SpriteRenderer>() != null)
+            {
+                x.GetComponent<SpriteRenderer>().color = new Color(newColor.r, newColor.g, newColor.b, x.GetComponent<SpriteRenderer>().color.a);
+            }
         }
 
-        foreach(SpriteRenderer s in inverseSprites)
+        foreach(GameObject y in complementary)
         {
-            s.color = InvertColor(newColor);
+            Color inverted = InvertColor(newColor);
+            if (y.GetComponent<Light2D>() != null)
+            {
+                y.GetComponent<Light2D>().color = inverted;
+            }
+            else if (y.GetComponent<TextMeshProUGUI>() != null)
+            {
+                y.GetComponent<TextMeshProUGUI>().color = new Color(inverted.r, inverted.g, inverted.b, y.GetComponent<TextMeshProUGUI>().color.a);
+            }
+            else if (y.GetComponent<SpriteRenderer>() != null)
+            {
+                y.GetComponent<SpriteRenderer>().color = new Color(inverted.r, inverted.g, inverted.b, y.GetComponent<SpriteRenderer>().color.a);
+            }
         }
     }
 
@@ -49,7 +68,7 @@ public class ColorSetter : MonoBehaviour
     {
         float h, s, v;
         Color.RGBToHSV(new Color(1 - myColor.r, 1 - myColor.g, 1 - myColor.b), out h, out s, out v);
-        return Color.HSVToRGB(h, s, 0.85f);
+        return Color.HSVToRGB(h, s, 1f);
     }
 
     private void OnValidate()
