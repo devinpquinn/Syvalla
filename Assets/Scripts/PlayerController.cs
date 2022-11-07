@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public float moveSpeed = 2f;
     Vector2 movement = Vector2.zero;
+
+    //interaction stuff
+    [HideInInspector]
+    public Interaction interaction;
+    public TextMeshProUGUI topText;
+    public TextMeshProUGUI bottomText;
 
     //storage and retrieval stuff
     private static PlayerController player;
@@ -47,6 +54,15 @@ public class PlayerController : MonoBehaviour
         {
             movement.x = 0;
         }
+
+        //interaction trigger
+        if (Input.GetKey(KeyCode.W))
+        {
+            if(interaction != null)
+            {
+                interaction.Interact();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -55,6 +71,18 @@ public class PlayerController : MonoBehaviour
         {
             //player movement
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    public void UpdateText(string line, bool top = false)
+    {
+        if (top)
+        {
+            topText.text = line;
+        }
+        else
+        {
+            bottomText.text = line;
         }
     }
 }
