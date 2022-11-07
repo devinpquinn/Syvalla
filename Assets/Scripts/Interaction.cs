@@ -18,11 +18,21 @@ public class Interaction : MonoBehaviour
     {
         //lock player
         PlayerController.Instance.state = PlayerController.playerState.Locked;
-        PlayerController.Instance.UpdateText("", true);
 
+        //set header
+        if(lines.Count > 1)
+        {
+            PlayerController.Instance.UpdateText("Click to continue.", true);
+        }
+        else
+        {
+            PlayerController.Instance.UpdateText("Click to return.", true);
+        }
+
+        //animate out pip
         if(gameObject.GetComponent<InteractPip>() != null)
         {
-            gameObject.GetComponent<Animator>().Play("PipExit");
+            gameObject.GetComponent<Animator>().Play("PipSelected");
         }
 
         //start playing text
