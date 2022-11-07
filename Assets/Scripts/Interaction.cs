@@ -22,7 +22,7 @@ public class Interaction : MonoBehaviour
         //set header
         if(lines.Count > 1)
         {
-            PlayerController.Instance.UpdateText("Click to continue.", true);
+            PlayerController.Instance.UpdateText("Click to continue...", true);
         }
         else
         {
