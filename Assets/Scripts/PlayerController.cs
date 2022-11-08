@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Locked };
+    public enum playerState { Normal, Interacting };
 
     public playerState state;
 
@@ -45,22 +45,33 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //movement vector
-        if (Input.GetKey(KeyCode.D))
+        if(state == playerState.Normal)
         {
-            movement.x = 1;
-        }
-        else
-        {
-            movement.x = 0;
-        }
-
-        //interaction trigger
-        if (Input.GetKey(KeyCode.W))
-        {
-            if(interaction != null)
+            //movement vector
+            if (Input.GetKey(KeyCode.D))
             {
-                interaction.Interact();
+                movement.x = 1;
+            }
+            else
+            {
+                movement.x = 0;
+            }
+
+            //interaction trigger
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (interaction != null)
+                {
+                    interaction.Interact();
+                }
+            }
+        }
+        else if (state == playerState.Interacting)
+        {
+            if(Input.GetKeyDown(KeyCode.Mouse0) && interaction != null)
+            {
+                //advance interaction
+                interaction.Advance();
             }
         }
     }
@@ -76,6 +87,23 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateText(string line, bool top = false)
     {
+        //check for events
+        if (line.StartsWith("{"))
+        {
+            //read key
+            int key = int.Parse(line.Substring(1, 1));
+
+            //edit line
+            line = line.Substring(3);
+
+            //call event
+            if(interaction != null)
+            {
+                interaction.inLine[key].Invoke();
+            }
+        }
+
+        //set text
         if (top)
         {
             topText.text = line;
@@ -84,5 +112,11 @@ public class PlayerController : MonoBehaviour
         {
             bottomText.text = line;
         }
+    }
+
+    public void ClearText()
+    {
+        topText.text = "";
+        bottomText.text = "";
     }
 }

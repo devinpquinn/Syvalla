@@ -17,7 +17,7 @@ public class Interaction : MonoBehaviour
     public void Interact()
     {
         //lock player
-        PlayerController.Instance.state = PlayerController.playerState.Locked;
+        PlayerController.Instance.state = PlayerController.playerState.Interacting;
 
         //set header
         if(lines.Count > 1)
@@ -44,6 +44,33 @@ public class Interaction : MonoBehaviour
     public void Advance()
     {
         index++;
+
         //get next line of dialogue, check for events or end of interaction
+        if(lines.Count > index)
+        {
+            //continue dialogue
+            if(lines.Count == index + 1)
+            {
+                //this is the last line
+                PlayerController.Instance.UpdateText("Click to return.", true);
+            }
+            PlayerController.Instance.UpdateText(lines[index]);
+        }
+        else
+        {
+            //end dialogue
+
+            //clear text
+            PlayerController.Instance.ClearText();
+
+            //reset state
+            PlayerController.Instance.state = PlayerController.playerState.Normal;
+
+            //call event
+            onEnd.Invoke();
+
+            //cleanup object
+            this.gameObject.SetActive(false);
+        }
     }
 }
