@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 3139
+  controlID: 103
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -110,7 +110,7 @@ MonoBehaviour:
       width: 2361.2168
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.48703703
+  m_defaultScale: 0.50648147
   m_LastWindowPixelSize: {x: 1150, y: 547}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 3140
+  controlID: 104
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 3141
+  controlID: 105
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0cfbffff
-      m_LastClickedID: -1268
-      m_ExpandedIDs: 0cfbffff0efbffff8a6d0000
+      m_SelectedIDs: 506d0000
+      m_LastClickedID: 27984
+      m_ExpandedIDs: 0efbffff0a6d0000366d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -660,7 +660,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -715,9 +715,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: bc6f0000
-    m_LastClickedID: 28604
-    m_ExpandedIDs: 000000009c6f000000ca9a3bffffff7f
+    m_SelectedIDs: c06f0000
+    m_LastClickedID: 28608
+    m_ExpandedIDs: 00000000a66f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -745,7 +745,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009c6f000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000a66f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -770,8 +770,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0cfbffff
-    m_LastClickedInstanceID: -1268
+    m_SelectedInstanceIDs: 506d0000
+    m_LastClickedInstanceID: 27984
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
