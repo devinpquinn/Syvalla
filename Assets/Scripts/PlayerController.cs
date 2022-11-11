@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI topText;
     public TextMeshProUGUI bottomText;
 
+    //interaction camera stuff
+    private CinemachineVirtualCamera vcam;
+    private float camDefaultSize = 5;
+    private float camCloseSize = 4.7f;
+
     //storage and retrieval stuff
     private static PlayerController player;
     public static PlayerController Instance { get { return player; } }
@@ -41,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
         //variable fetching and setting
         rb = GetComponent<Rigidbody2D>();
+        vcam = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
     private void Update()
@@ -118,5 +125,32 @@ public class PlayerController : MonoBehaviour
     {
         topText.text = "";
         bottomText.text = "";
+    }
+
+    public void CamIn()
+    {
+        //zoom the camera in
+        StartCoroutine(LerpCameraSize(camCloseSize));
+    }
+
+    public void CamOut()
+    {
+        //zoom the camera out
+        StartCoroutine(LerpCameraSize(camDefaultSize));
+    }
+
+    public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 0.15f)
+    {
+        float startSize = vcam.m_Lens.OrthographicSize;
+        float timer = 0;
+
+        while(timer < transitionTime)
+        {
+            timer += Time.deltaTime;
+            vcam.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, timer / transitionTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return null;
     }
 }

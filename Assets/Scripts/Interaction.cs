@@ -35,6 +35,9 @@ public class Interaction : MonoBehaviour
             gameObject.GetComponent<Animator>().Play("PipSelected");
         }
 
+        //animate camera in
+        PlayerController.Instance.CamIn();
+
         //start playing text
         PlayerController.Instance.UpdateText(lines[0]);
 
@@ -65,6 +68,9 @@ public class Interaction : MonoBehaviour
 
             //reset state
             PlayerController.Instance.state = PlayerController.playerState.Normal;
+
+            //animate camera out
+            PlayerController.Instance.CamOut();
 
             //call event
             onEnd.Invoke();
