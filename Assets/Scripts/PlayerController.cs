@@ -146,11 +146,12 @@ public class PlayerController : MonoBehaviour
 
         while(timer < transitionTime)
         {
-            timer += Time.deltaTime;
+            timer += Time.fixedDeltaTime;
             vcam.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, timer / transitionTime);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
 
+        vcam.m_Lens.OrthographicSize = targetSize;
         yield return null;
     }
 }
