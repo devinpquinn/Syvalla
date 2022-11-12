@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     //movement stuff
     private Rigidbody2D rb;
     [HideInInspector]
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1.5f;
     Vector2 movement = Vector2.zero;
 
     //interaction stuff
