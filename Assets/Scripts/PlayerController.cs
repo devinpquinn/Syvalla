@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(LerpCameraSize(camDefaultSize));
     }
 
-    public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 0.15f)
+    public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 0.2f)
     {
         float startSize = vcam.m_Lens.OrthographicSize;
         float timer = 0;
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
         while(timer < transitionTime)
         {
             timer += Time.fixedDeltaTime;
-            vcam.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, timer / transitionTime);
+            vcam.m_Lens.OrthographicSize = Mathf.SmoothStep(startSize, targetSize, timer / transitionTime);
             yield return new WaitForFixedUpdate();
         }
 
