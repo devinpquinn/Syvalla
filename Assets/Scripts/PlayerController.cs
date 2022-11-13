@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     //interaction camera stuff
     private CinemachineVirtualCamera vcam;
     private float camDefaultSize = 5;
-    private float camCloseSize = 4.7f;
+    private float camCloseSize = 4f;
 
     //storage and retrieval stuff
     private static PlayerController player;
@@ -130,16 +130,16 @@ public class PlayerController : MonoBehaviour
     public void CamIn()
     {
         //zoom the camera in
-        StartCoroutine(LerpCameraSize(camCloseSize));
+        StartCoroutine(LerpCameraSize(camCloseSize, 0.7f));
     }
 
     public void CamOut()
     {
         //zoom the camera out
-        StartCoroutine(LerpCameraSize(camDefaultSize));
+        StartCoroutine(LerpCameraSize(camDefaultSize, 0.8f));
     }
 
-    public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 0.2f)
+    public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 1f)
     {
         float startSize = vcam.m_Lens.OrthographicSize;
         float timer = 0;
