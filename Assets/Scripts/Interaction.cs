@@ -18,6 +18,7 @@ public class Interaction : MonoBehaviour
     {
         //lock player
         PlayerController.Instance.state = PlayerController.playerState.Interacting;
+        PlayerController.Instance.interaction = this;
 
         //set header
         if(lines.Count > 1)
@@ -68,6 +69,7 @@ public class Interaction : MonoBehaviour
 
             //reset state
             PlayerController.Instance.state = PlayerController.playerState.Normal;
+            PlayerController.Instance.interaction = null;
 
             //animate camera out
             PlayerController.Instance.CamOut();
