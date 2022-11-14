@@ -10,7 +10,7 @@ public class InteractPip : MonoBehaviour
         {
             GetComponent<Animator>().enabled = true;
             PlayerController.Instance.interaction = gameObject.GetComponent<Interaction>();
-            PlayerController.Instance.UpdateText("Press 'W' to Inspect.", true);
+            PlayerController.Instance.UpdateText("Press 'W' to inspect.", true);
         }
     }
 
