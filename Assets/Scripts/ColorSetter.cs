@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using TMPro;
+using UnityEngine.UI;
 
 public class ColorSetter : MonoBehaviour
 {
@@ -36,13 +37,17 @@ public class ColorSetter : MonoBehaviour
             {
                 x.GetComponent<Light2D>().color = new Color(newColor.r, newColor.g, newColor.b);
             }
-            else if (x.GetComponent<TextMeshProUGUI>() != null)
+            if (x.GetComponent<TextMeshProUGUI>() != null)
             {
                 x.GetComponent<TextMeshProUGUI>().color = new Color(newColor.r, newColor.g, newColor.b, x.GetComponent<TextMeshProUGUI>().color.a);
             }
-            else if (x.GetComponent<SpriteRenderer>() != null)
+            if (x.GetComponent<SpriteRenderer>() != null)
             {
                 x.GetComponent<SpriteRenderer>().color = new Color(newColor.r, newColor.g, newColor.b, x.GetComponent<SpriteRenderer>().color.a);
+            }
+            if (x.GetComponent<Image>() != null)
+            {
+                x.GetComponent<Image>().color = new Color(newColor.r, newColor.g, newColor.b, x.GetComponent<Image>().color.a);
             }
         }
 
@@ -53,13 +58,17 @@ public class ColorSetter : MonoBehaviour
             {
                 y.GetComponent<Light2D>().color = inverted;
             }
-            else if (y.GetComponent<TextMeshProUGUI>() != null)
+            if (y.GetComponent<TextMeshProUGUI>() != null)
             {
                 y.GetComponent<TextMeshProUGUI>().color = new Color(inverted.r, inverted.g, inverted.b, y.GetComponent<TextMeshProUGUI>().color.a);
             }
-            else if (y.GetComponent<SpriteRenderer>() != null)
+            if (y.GetComponent<SpriteRenderer>() != null)
             {
                 y.GetComponent<SpriteRenderer>().color = new Color(inverted.r, inverted.g, inverted.b, y.GetComponent<SpriteRenderer>().color.a);
+            }
+            if(y.GetComponent<Image>() != null)
+            {
+                y.GetComponent<Image>().color = new Color(inverted.r, inverted.g, inverted.b, y.GetComponent<Image>().color.a);
             }
         }
     }
