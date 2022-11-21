@@ -11,9 +11,9 @@ public class DecodeScript : MonoBehaviour
 
     private int lastHovered = -1;
 
-    private void Awake()
+    private void Start()
     {
-        rawText = decodeText.text;
+        InitialScramble();
     }
 
     private void Update()
@@ -118,5 +118,47 @@ public class DecodeScript : MonoBehaviour
         //update decodeText and re-highlight
         string highlightString = ColorUtility.ToHtmlStringRGB(ColorSetter.colorSetter.InvertedColor());
         decodeText.text = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=#" + highlightString + ">" + newWord + "</color>" + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+    }
+
+    private string ScrambleWord(string word)
+    {
+        string newWord = "";
+
+        for (int i = 0; i < word.Length; i++)
+        {
+            char subj = word[i];
+            if (subj.Equals('Z'))
+            {
+                subj = 'A';
+            }
+            else
+            {
+                subj = (char)(((int)subj) + 1);
+            }
+            newWord += subj;
+        }
+
+        return newWord;
+    }
+
+    private void InitialScramble()
+    {
+        rawText = decodeText.text;
+
+        for(int i = 0; i < decodeText.textInfo.wordCount; i++)
+        {
+            string targetWord = decodeText.textInfo.wordInfo[i].GetWord();
+            int scrambles = Random.Range(1, 26);
+
+            while(scrambles > 0)
+            {
+                targetWord = ScrambleWord(targetWord);
+                scrambles--;
+            }
+
+            rawText = rawText.Substring(0, decodeText.textInfo.wordInfo[i].firstCharacterIndex) + targetWord + rawText.Substring(decodeText.textInfo.wordInfo[i].lastCharacterIndex + 1);
+        }
+
+        decodeText.text = rawText;
     }
 }
