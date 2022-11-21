@@ -73,7 +73,15 @@ public class ColorSetter : MonoBehaviour
         }
     }
 
-    public Color InvertColor(Color myColor)
+    public Color InvertColor(Color newColor)
+    {
+        float h, s, v;
+        Color.RGBToHSV(new Color(1 - newColor.r, 1 - newColor.g, 1 - newColor.b), out h, out s, out v);
+        return Color.HSVToRGB(h, s, 1f);
+    }
+
+    //this one just returns the inverted version of the current color
+    public Color InvertedColor()
     {
         float h, s, v;
         Color.RGBToHSV(new Color(1 - myColor.r, 1 - myColor.g, 1 - myColor.b), out h, out s, out v);
