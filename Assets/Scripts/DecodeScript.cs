@@ -11,8 +11,14 @@ public class DecodeScript : MonoBehaviour
 
     private int lastHovered = -1;
 
-    private void Start()
+    private void OnEnable()
     {
+        StartCoroutine(DoScramble());
+    }
+
+    IEnumerator DoScramble()
+    {
+        yield return new WaitForEndOfFrame();
         InitialScramble();
     }
 
