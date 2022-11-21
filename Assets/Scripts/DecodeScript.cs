@@ -7,7 +7,14 @@ public class DecodeScript : MonoBehaviour
 {
     public TMP_Text decodeText;
 
+    private string rawText;
+
     private int lastHovered = -1;
+
+    private void Awake()
+    {
+        rawText = decodeText.text;
+    }
 
     private void Update()
     {
@@ -20,20 +27,33 @@ public class DecodeScript : MonoBehaviour
             //if starting highlight:
             if (hoverWord != -1)
             {
-                //text of word highlighted
-                string targetWord = decodeText.textInfo.wordInfo[hoverWord].GetWord();
-
-                //highlight color hexcode
-                string highlightString = ColorUtility.ToHtmlStringRGB(ColorSetter.colorSetter.InvertedColor());
+                HighlightWord(hoverWord);
             }
 
             //if ending highlight:
             else
             {
-
+                decodeText.text = rawText;
             }
 
             lastHovered = hoverWord;
         }
+    }
+
+    private void HighlightWord(int index)
+    {
+        //add rich text color tags to word at index
+
+        //clear tags in case we are switching from one word to another
+        decodeText.text = rawText;
+
+        //text of target word
+        string targetWord = decodeText.textInfo.wordInfo[index].GetWord();
+
+        //hexcode of highlight color
+        string highlightString = ColorUtility.ToHtmlStringRGB(ColorSetter.colorSetter.InvertedColor());
+
+        //update text with rich text tags
+        decodeText.text = decodeText.text.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=#" + highlightString + ">" + targetWord + "</color>" + decodeText.text.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
     }
 }
