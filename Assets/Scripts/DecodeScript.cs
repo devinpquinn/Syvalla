@@ -38,6 +38,23 @@ public class DecodeScript : MonoBehaviour
 
             lastHovered = hoverWord;
         }
+
+        //check for scroll
+        if (hoverWord != -1)
+        {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            
+            if(scroll > 0)
+            {
+                //scrub letters positive
+                ScrubWord(hoverWord);
+            }
+            else if (scroll < 0)
+            {
+                //scrub letters negative
+                ScrubWord(hoverWord, false);
+            }
+        }
     }
 
     private void HighlightWord(int index)
@@ -55,5 +72,51 @@ public class DecodeScript : MonoBehaviour
 
         //update text with rich text tags
         decodeText.text = decodeText.text.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=#" + highlightString + ">" + targetWord + "</color>" + decodeText.text.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+    }
+
+    private void ScrubWord(int index, bool pos = true)
+    {
+        string oldWord = decodeText.textInfo.wordInfo[index].GetWord();
+        string newWord = "";
+
+        if (pos)
+        {
+            for (int i = 0; i < oldWord.Length; i++)
+            {
+                char subj = oldWord[i];
+                if (subj.Equals('Z'))
+                {
+                    subj = 'A';
+                }
+                else
+                {
+                    subj = (char)(((int)subj) + 1);
+                }
+                newWord += subj;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < oldWord.Length; i++)
+            {
+                char subj = oldWord[i];
+                if (subj.Equals('A'))
+                {
+                    subj = 'Z';
+                }
+                else
+                {
+                    subj = (char)(((int)subj) - 1);
+                }
+                newWord += subj;
+            }
+        }
+
+        //update rawText
+        rawText = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + newWord + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+
+        //update decodeText and re-highlight
+        string highlightString = ColorUtility.ToHtmlStringRGB(ColorSetter.colorSetter.InvertedColor());
+        decodeText.text = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=#" + highlightString + ">" + newWord + "</color>" + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
     }
 }
