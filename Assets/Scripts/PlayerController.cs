@@ -7,7 +7,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Interacting };
+    public enum playerState { Normal, Interacting, Translating };
 
     public playerState state;
 
@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     private CinemachineVirtualCamera vcam;
     private float camDefaultSize = 5;
     private float camCloseSize = 4f;
+
+    //translation stuff
+    [HideInInspector]
+    public Translation translation;
+    public GameObject decodeInterface;
+    private TextMeshProUGUI decodeText;
 
     //storage and retrieval stuff
     private static PlayerController player;
@@ -48,6 +54,8 @@ public class PlayerController : MonoBehaviour
         //variable fetching and setting
         rb = GetComponent<Rigidbody2D>();
         vcam = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
+
+        decodeText = decodeInterface.transform.Find("DecodePanel").Find("DecodeText").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
