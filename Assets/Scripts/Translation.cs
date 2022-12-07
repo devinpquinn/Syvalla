@@ -48,6 +48,7 @@ public class Translation : MonoBehaviour
     public void EndTranslation()
     {
         //animate out interface
+        PlayerController.Instance.decodeInterface.gameObject.GetComponent<Animator>().Play("TranslationDisappear");
 
         //clear text
         PlayerController.Instance.ClearText();

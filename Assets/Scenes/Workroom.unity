@@ -744,8 +744,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 3.0800962e-10, z: -6.1604666e-11, w: 1}
-  m_LocalPosition: {x: -0.0000000061601924, y: 1.5, z: -10}
+  m_LocalRotation: {x: 0, y: 3.2235015e-10, z: -6.44729e-11, w: 1}
+  m_LocalPosition: {x: -0.000000006447003, y: 1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -985,6 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746916597}
   - component: {fileID: 746916598}
+  - component: {fileID: 746916599}
   m_Layer: 5
   m_Name: DecodeInterface
   m_TagString: Untagged
@@ -1026,6 +1027,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decodeText: {fileID: 1084873903}
+  rawText: 
+--- !u!95 &746916599
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746916596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1c72cf72a0ac27242a29c18cd2ac06cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &805507387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1415,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294639530
+    rgba: 16449450
   m_fontColor: {r: 0.6666667, g: 1, b: 0.98039216, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1707,7 +1729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -1.5333133e-21, z: -7.666225e-21}
+  m_LocalPosition: {x: -1.2470025e-11, y: -1.6048471e-21, z: -8.023879e-21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2400,10 +2422,10 @@ MonoBehaviour:
 
     TURN BACK.'
   keywords: []
-  onCloseNormal:
+  onEndNormal:
     m_PersistentCalls:
       m_Calls: []
-  onCloseSpecial:
+  onEndSpecial:
     m_PersistentCalls:
       m_Calls: []
   description: A test message.
