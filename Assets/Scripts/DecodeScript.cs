@@ -12,6 +12,9 @@ public class DecodeScript : MonoBehaviour
 
     private int lastHovered = -1;
 
+    //blocks mouse interaction
+    private bool locked = true;
+
     private void OnEnable()
     {
         StartCoroutine(DoScramble());
@@ -25,41 +28,44 @@ public class DecodeScript : MonoBehaviour
 
     private void Update()
     {
-        //find hovered word
-        int hoverWord = TMP_TextUtilities.FindIntersectingWord(decodeText, Input.mousePosition, Camera.main);
-
-        //check if there is a change in hover state:
-        if(hoverWord != lastHovered)
+        if (!locked)
         {
-            //if starting highlight:
+            //find hovered word
+            int hoverWord = TMP_TextUtilities.FindIntersectingWord(decodeText, Input.mousePosition, Camera.main);
+
+            //check if there is a change in hover state:
+            if (hoverWord != lastHovered)
+            {
+                //if starting highlight:
+                if (hoverWord != -1)
+                {
+                    HighlightWord(hoverWord);
+                }
+
+                //if ending highlight:
+                else
+                {
+                    decodeText.text = rawText;
+                }
+
+                lastHovered = hoverWord;
+            }
+
+            //check for scroll
             if (hoverWord != -1)
             {
-                HighlightWord(hoverWord);
-            }
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-            //if ending highlight:
-            else
-            {
-                decodeText.text = rawText;
-            }
-
-            lastHovered = hoverWord;
-        }
-
-        //check for scroll
-        if (hoverWord != -1)
-        {
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-            
-            if(scroll > 0)
-            {
-                //scrub letters positive
-                ScrubWord(hoverWord);
-            }
-            else if (scroll < 0)
-            {
-                //scrub letters negative
-                ScrubWord(hoverWord, false);
+                if (scroll > 0)
+                {
+                    //scrub letters positive
+                    ScrubWord(hoverWord);
+                }
+                else if (scroll < 0)
+                {
+                    //scrub letters negative
+                    ScrubWord(hoverWord, false);
+                }
             }
         }
     }
@@ -167,6 +173,16 @@ public class DecodeScript : MonoBehaviour
         }
 
         decodeText.text = rawText;
+    }
+
+    public void Lock()
+    {
+        locked = true;
+    }
+
+    public void Unlock()
+    {
+        locked = false;
     }
 
     //called from animation event
