@@ -78,7 +78,7 @@ public class Interaction : MonoBehaviour
             onEnd.Invoke();
 
             //cleanup object
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

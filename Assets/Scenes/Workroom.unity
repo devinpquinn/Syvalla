@@ -522,7 +522,7 @@ MonoBehaviour:
   topText: {fileID: 880819234}
   bottomText: {fileID: 1849565374}
   translation: {fileID: 0}
-  decodeInterface: {fileID: 746916596}
+  decodeInterface: {fileID: 746916598}
 --- !u!61 &306298831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -744,8 +744,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 3.030216e-10, z: -6.060702e-11, w: 1}
-  m_LocalPosition: {x: -0.000000006060432, y: 1.5, z: -10}
+  m_LocalRotation: {x: 0, y: 3.0800962e-10, z: -6.1604666e-11, w: 1}
+  m_LocalPosition: {x: -0.0000000061601924, y: 1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1707,7 +1707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -1.5084319e-21, z: -7.541824e-21}
+  m_LocalPosition: {x: -1.2470025e-11, y: -1.5333133e-21, z: -7.666225e-21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2376,7 +2376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947348874177715996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 3, z: 0}
+  m_LocalPosition: {x: 3, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2396,9 +2396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2a2834bf9fd9a41ba903580420d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageText: 'YOU ARE NOT
-
-    WELCOME HERE.
+  messageText: 'YOU ARE NOT WELCOME HERE.
 
     TURN BACK.'
   keywords: []
@@ -2515,6 +2513,10 @@ PrefabInstance:
     - target: {fileID: 5355501706686047801, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_Name
       value: TestInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355501706686047801, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5355501706686047802, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_RootOrder

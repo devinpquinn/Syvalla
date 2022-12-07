@@ -7,7 +7,8 @@ public class DecodeScript : MonoBehaviour
 {
     public TMP_Text decodeText;
 
-    private string rawText;
+    [HideInInspector]
+    public string rawText;
 
     private int lastHovered = -1;
 
@@ -166,5 +167,11 @@ public class DecodeScript : MonoBehaviour
         }
 
         decodeText.text = rawText;
+    }
+
+    //called from animation event
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

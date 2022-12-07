@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     //translation stuff
     [HideInInspector]
     public Translation translation;
-    public GameObject decodeInterface;
+    public DecodeScript decodeInterface;
     private TextMeshProUGUI decodeText;
 
     //storage and retrieval stuff
@@ -79,6 +79,10 @@ public class PlayerController : MonoBehaviour
                 {
                     interaction.Interact();
                 }
+                else if (translation != null)
+                {
+                    translation.StartTranslation();
+                }
             }
         }
         else if (state == playerState.Interacting)
@@ -87,6 +91,14 @@ public class PlayerController : MonoBehaviour
             {
                 //advance interaction
                 interaction.Advance();
+            }
+        }
+        else if(state == playerState.Translating)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && translation != null)
+            {
+                //return from translation
+                translation.EndTranslation();
             }
         }
     }
@@ -133,6 +145,14 @@ public class PlayerController : MonoBehaviour
     {
         topText.text = "";
         bottomText.text = "";
+    }
+
+    public void SetupTranslation(string message)
+    {
+        decodeText.text = message;
+        decodeInterface.gameObject.SetActive(true);
+
+        state = playerState.Translating;
     }
 
     public void CamIn()
