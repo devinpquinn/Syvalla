@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     private float camDefaultSize = 5;
     private float camCloseSize = 4f;
 
+    //the coroutine currently running on the camera
+    private Coroutine camRoutine = null;
+
     //translation stuff
     [HideInInspector]
     public Translation translation;
@@ -157,14 +160,26 @@ public class PlayerController : MonoBehaviour
 
     public void CamIn()
     {
+        //abort any ongoing camera coroutine
+        if(camRoutine != null)
+        {
+            StopCoroutine(camRoutine);
+        }
+
         //zoom the camera in
-        StartCoroutine(LerpCameraSize(camCloseSize, 0.7f));
+        camRoutine = StartCoroutine(LerpCameraSize(camCloseSize, 0.7f));
     }
 
     public void CamOut()
     {
+        //abort any ongoing camera coroutine
+        if (camRoutine != null)
+        {
+            StopCoroutine(camRoutine);
+        }
+
         //zoom the camera out
-        StartCoroutine(LerpCameraSize(camDefaultSize, 0.8f));
+        camRoutine = StartCoroutine(LerpCameraSize(camDefaultSize, 0.8f));
     }
 
     public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 1f)
