@@ -61,7 +61,7 @@ public class TextScroller : MonoBehaviour
             }
 
             //check if added character signals a pause
-            if(addedChar == "." || addedChar == "!" || addedChar == "?")
+            if((addedChar == "." && nextChar != ".") || addedChar == "!" || addedChar == "?")
             {
                 timer += 0.25f;
             }
