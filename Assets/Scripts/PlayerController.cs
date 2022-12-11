@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public Interaction interaction;
     public TextMeshProUGUI topText;
     public TextMeshProUGUI bottomText;
+    [HideInInspector]
+    public TextScroller scroller;
 
     //interaction camera stuff
     private CinemachineVirtualCamera vcam;
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         vcam = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
 
+        scroller = bottomText.gameObject.GetComponent<TextScroller>();
+
         decodeText = decodeInterface.transform.Find("DecodePanel").Find("DecodeText").GetComponent<TextMeshProUGUI>();
     }
 
@@ -93,7 +97,7 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Mouse0) && interaction != null)
             {
                 //advance interaction
-                interaction.Advance();
+                scroller.Clicked();
             }
         }
         else if(state == playerState.Translating)
@@ -140,7 +144,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            bottomText.text = line;
+            scroller.NewLine(line);
         }
     }
 
