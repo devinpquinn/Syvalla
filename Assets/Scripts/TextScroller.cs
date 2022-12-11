@@ -60,7 +60,25 @@ public class TextScroller : MonoBehaviour
                 index += 2;
             }
 
-            //check if next character signals a pause
+            //check if added character signals a pause
+            if(addedChar == "." || addedChar == "!" || addedChar == "?")
+            {
+                timer += 0.25f;
+            }
+            else if (addedChar == ",")
+            {
+                timer += 0.1f;
+            }
+            else if (addedChar == ";" || addedChar == ":" || rawText.Substring(0, index).EndsWith("--"))
+            {
+                timer += 0.2f;
+            }
+            
+            //check next character
+            if(nextChar == "'" || nextChar == "\"" || nextChar == ")" || nextChar == "]")
+            {
+                timer = timePerChar;
+            }
 
             uiText.text = rawText.Substring(0, index) + richTag + rawText.Substring(index);
         }
