@@ -5,11 +5,8 @@ using TMPro;
 
 public class TextScroller : MonoBehaviour
 {
-    [HideInInspector]
-    public Interaction myInteraction;
-
     //plain line text
-    private string rawText;
+    private string rawText = "";
     //tmp
     private TextMeshProUGUI uiText;
 
@@ -20,10 +17,15 @@ public class TextScroller : MonoBehaviour
     private int index = 0;
 
     //how much time between displaying standard characters
-    private float timePerChar = 0.02f;
+    private float timePerChar = 0.01f;
 
     //decreases every update
     private float timer = 999;
+
+    private void Awake()
+    {
+        uiText = PlayerController.Instance.bottomText;
+    }
 
     public void NewLine(string line)
     {
@@ -38,6 +40,7 @@ public class TextScroller : MonoBehaviour
     public void AdvanceText()
     {
         index++;
+        timer = timePerChar;
 
         if(index < rawText.Length)
         {
@@ -57,12 +60,16 @@ public class TextScroller : MonoBehaviour
         if(index >= rawText.Length)
         {
             //advance to next line
-            myInteraction.Advance();
+            if(PlayerController.Instance.interaction != null)
+            {
+                PlayerController.Instance.interaction.Advance();
+            }
         }
         else
         {
             //skip to displaying full text;
             uiText.text = rawText;
+            index = rawText.Length;
         }
     }
 
