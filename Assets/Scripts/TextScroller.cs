@@ -45,6 +45,23 @@ public class TextScroller : MonoBehaviour
         if(index < rawText.Length)
         {
             //display split text
+
+            //check next character
+            string addedChar = rawText.Substring(index - 1, 1);
+            string nextChar = rawText.Substring(index, 1);
+
+            //check ifor rich text tag
+            if (addedChar == "<")
+            {
+                if(nextChar == "/")
+                {
+                    index++;
+                }
+                index += 2;
+            }
+
+            //check if next character signals a pause
+
             uiText.text = rawText.Substring(0, index) + richTag + rawText.Substring(index);
         }
         else
