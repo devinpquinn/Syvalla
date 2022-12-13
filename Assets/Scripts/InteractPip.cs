@@ -30,15 +30,22 @@ public class InteractPip : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GetComponent<Animator>().Play("PipExit");
-            PlayerController.Instance.UpdateText("", true);
 
             if (translation)
             {
+                if (!PlayerController.Instance.decodeInterface.gameObject.activeInHierarchy)
+                {
+                    PlayerController.Instance.UpdateText("", true);
+                }
+
                 PlayerController.Instance.translation = null;
             }
             else
             {
-                PlayerController.Instance.UpdateText("", true);
+                if(PlayerController.Instance.bottomText.text.Length < 1)
+                {
+                    PlayerController.Instance.UpdateText("", true);
+                }
             }
         }
     }
