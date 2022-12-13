@@ -22,9 +22,16 @@ public class TextScroller : MonoBehaviour
     //decreases every update
     private float timer = 999;
 
+    //audio stuff
+    private AudioSource textSource;
+
+    public AudioClip letterSound;
+    private string silentChars = ",.-?!;:()[]{}<>*& ";
+
     private void Awake()
     {
         uiText = PlayerController.Instance.bottomText;
+        textSource = GetComponent<AudioSource>();
     }
 
     public void NewLine(string line)
@@ -50,7 +57,7 @@ public class TextScroller : MonoBehaviour
             string addedChar = rawText.Substring(index - 1, 1);
             string nextChar = rawText.Substring(index, 1);
 
-            //check ifor rich text tag
+            //check for rich text tag
             if (addedChar == "<")
             {
                 if(nextChar == "/")
@@ -58,6 +65,13 @@ public class TextScroller : MonoBehaviour
                     index++;
                 }
                 index += 2;
+
+                //refresh characters
+                addedChar = rawText.Substring(index - 1, 1);
+                if(index < rawText.Length)
+                {
+                    nextChar = rawText.Substring(index, 1);
+                }
             }
 
             //check if added character signals a pause
@@ -81,6 +95,20 @@ public class TextScroller : MonoBehaviour
             }
 
             uiText.text = rawText.Substring(0, index) + richTag + rawText.Substring(index);
+
+            //letter audio
+            if (!silentChars.Contains(addedChar) && !textSource.isPlaying)
+            {
+                //randomly vary pitch
+                float basePitch = 1f;
+
+                float margin = 0.06f;
+                float amount = Random.Range(basePitch - margin, basePitch + margin);
+
+                textSource.pitch = amount;
+                textSource.clip = letterSound;
+                textSource.Play();
+            }
         }
         else
         {
