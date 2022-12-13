@@ -97,7 +97,7 @@ public class TextScroller : MonoBehaviour
             uiText.text = rawText.Substring(0, index) + richTag + rawText.Substring(index);
 
             //letter audio
-            if (!silentChars.Contains(addedChar) && !textSource.isPlaying)
+            if (!silentChars.Contains(addedChar))
             {
                 //randomly vary pitch
                 float basePitch = 1f;
@@ -106,8 +106,7 @@ public class TextScroller : MonoBehaviour
                 float amount = Random.Range(basePitch - margin, basePitch + margin);
 
                 textSource.pitch = amount;
-                textSource.clip = letterSound;
-                textSource.Play();
+                textSource.PlayOneShot(letterSound);
             }
         }
         else
