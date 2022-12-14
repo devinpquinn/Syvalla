@@ -26,6 +26,7 @@ public class TextScroller : MonoBehaviour
     private AudioSource textSource;
 
     public AudioClip letterSound;
+    public AudioClip skipSound;
     private string silentChars = ",.-?!;:()[]{}<>*& ";
 
     private void Awake()
@@ -124,6 +125,7 @@ public class TextScroller : MonoBehaviour
             //advance to next line
             if(PlayerController.Instance.interaction != null)
             {
+                //advance
                 PlayerController.Instance.interaction.Advance();
             }
         }
@@ -132,6 +134,10 @@ public class TextScroller : MonoBehaviour
             //skip to displaying full text;
             uiText.text = rawText;
             index = rawText.Length;
+
+            //play audio
+            textSource.pitch = 1;
+            textSource.PlayOneShot(skipSound);
         }
     }
 
