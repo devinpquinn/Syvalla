@@ -27,8 +27,9 @@ public class PlayerController : MonoBehaviour
 
     //interaction camera stuff
     private CinemachineVirtualCamera vcam;
-    private float camDefaultSize = 5;
-    private float camCloseSize = 4f;
+    private float camTightSize = 3f;
+    private float camWideSize = 4f;
+    public CinemachineTargetGroup targetGroup;
 
     //the coroutine currently running on the camera
     private Coroutine camRoutine = null;
@@ -164,55 +165,17 @@ public class PlayerController : MonoBehaviour
 
     public void CamIn()
     {
-        //abort any ongoing camera coroutine
-        if(camRoutine != null)
-        {
-            StopCoroutine(camRoutine);
-        }
-
-        //zoom the camera in
-        camRoutine = StartCoroutine(LerpCameraSize(camCloseSize, 0.7f));
+        ResizeCam(camTightSize);
     }
 
     public void CamOut()
     {
-        //abort any ongoing camera coroutine
-        if (camRoutine != null)
-        {
-            StopCoroutine(camRoutine);
-        }
-
-        //zoom the camera out
-        camRoutine = StartCoroutine(LerpCameraSize(camDefaultSize, 0.8f));
+        ResizeCam(camWideSize);
     }
 
-    public void CamEngage()
+    public void ResizeCam(float targetSize)
     {
-
+        targetGroup.m_Targets[0].radius = targetSize;
     }
 
-    public void CamDisengage()
-    {
-
-    }
-
-    public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 1f)
-    {
-        if(vcam.m_Lens.OrthographicSize != targetSize)
-        {
-            float startSize = vcam.m_Lens.OrthographicSize;
-            float timer = 0;
-
-            while (timer < transitionTime)
-            {
-                timer += Time.fixedDeltaTime;
-                vcam.m_Lens.OrthographicSize = Mathf.SmoothStep(startSize, targetSize, timer / transitionTime);
-                yield return new WaitForFixedUpdate();
-            }
-
-            vcam.m_Lens.OrthographicSize = targetSize;
-        }
-        
-        yield return null;
-    }
 }

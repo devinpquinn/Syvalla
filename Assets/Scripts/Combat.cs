@@ -24,13 +24,11 @@ public class Combat : MonoBehaviour
     public void StartCombatCamera()
     {
         //camera transition from interaction framing to combat framing
-        PlayerController.Instance.CamEngage();
     }
 
     public void EndCombatCamera()
     {
-        //camera transition from interaction framing to combat framing 
-        PlayerController.Instance.CamDisengage();
+        //camera transition from combat framing to interaction framing 
     }
 
     public void StartCombat()
