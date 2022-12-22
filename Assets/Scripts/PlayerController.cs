@@ -7,7 +7,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Interacting, Translating };
+    public enum playerState { Normal, Interacting, Translating, Fighting };
 
     public playerState state;
 
@@ -184,6 +184,16 @@ public class PlayerController : MonoBehaviour
 
         //zoom the camera out
         camRoutine = StartCoroutine(LerpCameraSize(camDefaultSize, 0.8f));
+    }
+
+    public void CamEngage()
+    {
+
+    }
+
+    public void CamDisengage()
+    {
+
     }
 
     public IEnumerator LerpCameraSize(float targetSize, float transitionTime = 1f)

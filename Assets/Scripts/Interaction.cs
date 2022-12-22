@@ -14,6 +14,10 @@ public class Interaction : MonoBehaviour
 
     public List<UnityEvent> inLine; //events called on specific lines
 
+    //disable default camera transitions
+    public bool skipCamIn = false;
+    public bool skipCamOut = false;
+
     public void Interact()
     {
         //lock player
@@ -37,7 +41,10 @@ public class Interaction : MonoBehaviour
         }
 
         //animate camera in
-        PlayerController.Instance.CamIn();
+        if (!skipCamIn)
+        {
+            PlayerController.Instance.CamIn();
+        }
 
         //start playing text
         PlayerController.Instance.UpdateText(lines[0]);
@@ -72,7 +79,10 @@ public class Interaction : MonoBehaviour
             PlayerController.Instance.interaction = null;
 
             //animate camera out
-            PlayerController.Instance.CamOut();
+            if (!skipCamOut)
+            {
+                PlayerController.Instance.CamOut();
+            }
 
             //call event
             onEnd.Invoke();
