@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
     private float camWideSize = 4f;
 
     private float normalXDamping = 1f;
-    private float combatXDamping = 6f;
+    private float combatXDamping = 5f;
 
     private float normalZDamping = 2f;
-    private float combatZDamping = 5f;
+    private float combatZDamping = 6f;
 
-    //the coroutine currently running on the camera
-    private Coroutine camRoutine = null;
+    //combat stuff
+    [HideInInspector]
+    public Enemy enemy;
 
     //translation stuff
     [HideInInspector]
@@ -191,6 +192,15 @@ public class PlayerController : MonoBehaviour
         AddToCamera(enemy, weight, radius);
     }
 
+    public void CamDisengage()
+    {
+        //tighten camera to interaction framing
+
+        //remove enemy from target group
+
+        //remember to reset damping values at end of interaction
+    }
+
     public void AddToCamera(Transform t, float weight, float radius)
     {
         targetGroup.AddMember(t, weight, radius);
@@ -204,6 +214,12 @@ public class PlayerController : MonoBehaviour
     public void ResizeCam(float targetSize)
     {
         targetGroup.m_Targets[0].radius = targetSize;
+    }
+
+    public void ResetDamping()
+    {
+        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = normalXDamping;
+        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ZDamping = normalZDamping;
     }
 
 }

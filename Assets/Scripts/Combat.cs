@@ -35,6 +35,7 @@ public class Combat : MonoBehaviour
     public void EndCombatCamera()
     {
         //camera transition from combat framing to interaction framing 
+        PlayerController.Instance.CamDisengage();
     }
 
     public void StartCombat()
@@ -45,6 +46,7 @@ public class Combat : MonoBehaviour
         //display combat UI
 
         //activate enemy
+        PlayerController.Instance.enemy = myEnemy;
     }
 
     public void EndCombat()

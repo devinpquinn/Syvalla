@@ -14,4 +14,9 @@ public class Enemy : MonoBehaviour
     {
         camTarget = transform.Find("Enemy Camera Target");
     }
+
+    public void Activate()
+    {
+
+    }
 }
