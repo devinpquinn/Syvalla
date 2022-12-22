@@ -7,7 +7,12 @@ public class Combat : MonoBehaviour
     public Interaction interactBefore;
     public Interaction interactAfter;
 
-    public Enemy myEnemy;
+    private Enemy myEnemy;
+
+    private void Awake()
+    {
+        myEnemy = GetComponentInChildren<Enemy>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +29,7 @@ public class Combat : MonoBehaviour
     public void StartCombatCamera()
     {
         //camera transition from interaction framing to combat framing
+        PlayerController.Instance.CamEngage(myEnemy.camTarget);
     }
 
     public void EndCombatCamera()

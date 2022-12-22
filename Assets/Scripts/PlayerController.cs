@@ -27,9 +27,17 @@ public class PlayerController : MonoBehaviour
 
     //interaction camera stuff
     private CinemachineVirtualCamera vcam;
+    public CinemachineTargetGroup targetGroup;
+
+    //camera transition values
     private float camTightSize = 3f;
     private float camWideSize = 4f;
-    public CinemachineTargetGroup targetGroup;
+
+    private float normalXDamping = 1f;
+    private float combatXDamping = 6f;
+
+    private float normalZDamping = 2f;
+    private float combatZDamping = 5f;
 
     //the coroutine currently running on the camera
     private Coroutine camRoutine = null;
@@ -171,6 +179,26 @@ public class PlayerController : MonoBehaviour
     public void CamOut()
     {
         ResizeCam(camWideSize);
+    }
+
+    public void CamEngage(Transform enemy, float weight = 1, float radius = 4)
+    {
+        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = combatXDamping;
+        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ZDamping = combatZDamping;
+
+        CamOut();
+
+        AddToCamera(enemy, weight, radius);
+    }
+
+    public void AddToCamera(Transform t, float weight, float radius)
+    {
+        targetGroup.AddMember(t, weight, radius);
+    }
+
+    public void RemoveFromCamera(Transform t)
+    {
+        targetGroup.RemoveMember(t);
     }
 
     public void ResizeCam(float targetSize)
