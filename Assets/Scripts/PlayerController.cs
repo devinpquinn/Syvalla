@@ -197,16 +197,32 @@ public class PlayerController : MonoBehaviour
     public void AddToCamera(Transform t, float weight, float radius)
     {
         targetGroup.AddMember(t, weight, radius);
+
+        //play effect
+        UpdateCameraEffect();
     }
 
     public void RemoveFromCamera(Transform t)
     {
         targetGroup.RemoveMember(t);
+
+        //play effect
+        UpdateCameraEffect();
     }
 
     public void ResizeCam(float targetSize)
     {
+        //resize player camera radius
         targetGroup.m_Targets[0].radius = targetSize;
+
+        //play effect
+        UpdateCameraEffect();
+    }
+
+    //a stylistic visual (and audio?) effect when the camera is resized or reframed
+    public void UpdateCameraEffect()
+    {
+
     }
 
 }
