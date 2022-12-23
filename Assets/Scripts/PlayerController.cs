@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     //camera transition values
     private float camTightSize = 3f;
     private float camWideSize = 4f;
+    private Animator camTransitionAnim;
 
     //combat stuff
     [HideInInspector]
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour
         //variable fetching and setting
         rb = GetComponent<Rigidbody2D>();
         vcam = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
+
+        camTransitionAnim = Camera.main.transform.Find("Camera Transition Volume").GetComponent<Animator>();
 
         scroller = bottomText.gameObject.GetComponent<TextScroller>();
 
@@ -222,7 +225,7 @@ public class PlayerController : MonoBehaviour
     //a stylistic visual (and audio?) effect when the camera is resized or reframed
     public void UpdateCameraEffect()
     {
-
+        camTransitionAnim.Play("CameraTransition");
     }
 
 }
