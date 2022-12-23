@@ -33,12 +33,6 @@ public class PlayerController : MonoBehaviour
     private float camTightSize = 3f;
     private float camWideSize = 4f;
 
-    private float normalXDamping = 1f;
-    private float combatXDamping = 5f;
-
-    private float normalZDamping = 2f;
-    private float combatZDamping = 6f;
-
     //combat stuff
     [HideInInspector]
     public Enemy enemy;
@@ -184,11 +178,10 @@ public class PlayerController : MonoBehaviour
 
     public void CamEngage(Transform enemy, float weight = 1, float radius = 4)
     {
-        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = combatXDamping;
-        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ZDamping = combatZDamping;
-
+        //widen camera from combat framing
         CamOut();
 
+        //add enemy to camera
         AddToCamera(enemy, weight, radius);
     }
 
@@ -214,12 +207,6 @@ public class PlayerController : MonoBehaviour
     public void ResizeCam(float targetSize)
     {
         targetGroup.m_Targets[0].radius = targetSize;
-    }
-
-    public void ResetDamping()
-    {
-        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = normalXDamping;
-        vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ZDamping = normalZDamping;
     }
 
 }
