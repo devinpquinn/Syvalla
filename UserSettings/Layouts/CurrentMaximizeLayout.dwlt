@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 13859
+  controlID: 100
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 13860
+  controlID: 101
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 13861
+  controlID: 102
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 303.2
     height: 436.8
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -223,10 +223,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 85.20001}
-      m_SelectedIDs: e0f7ffff
-      m_LastClickedID: -2080
-      m_ExpandedIDs: d8a2ffffd2beffffe0f7ffff48f8ffff06fbffff2e6d0000e86d0000
+      scrollPos: {x: 0, y: 5.200012}
+      m_SelectedIDs: 446d0000
+      m_LastClickedID: 27972
+      m_ExpandedIDs: eafaffff0efbffff286d00002c6d00005a6d00000a6e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 921.60004
     height: 436.8
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -517,7 +517,7 @@ MonoBehaviour:
       index: 10
       layout: 4
   m_WindowGUID: f8d8ee5ab9d3ea24eb9df72b7cf00382
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -526,9 +526,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.4957056, y: 0.1237548, z: 368.39493}
+    m_Target: {x: 1.074154, y: -1.9095882, z: 630.85205}
     speed: 2
-    m_Value: {x: 1.4957056, y: 0.1237548, z: 368.39493}
+    m_Value: {x: 1.074154, y: -1.9095882, z: 630.85205}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,9 +579,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.8606071
+    m_Target: 4.9338894
     speed: 2
-    m_Value: 2.8606071
+    m_Value: 4.9338894
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -768,22 +768,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Testing
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Testing
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity Projects\Syvalla
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 27}
-    m_SelectedIDs: c2700000
-    m_LastClickedID: 28866
-    m_ExpandedIDs: 00000000427000005870000000ca9a3bffffff7f
+    m_SelectedIDs: b6700000
+    m_LastClickedID: 28854
+    m_ExpandedIDs: 00000000a4700000aa700000ba70000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -811,7 +811,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004270000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000a4700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -836,9 +836,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e0f7ffff
-    m_LastClickedInstanceID: -2080
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 446d0000
+    m_LastClickedInstanceID: 27972
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -936,22 +936,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animations
+    - Assets/Animations/Combat
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/Animations
+  - Assets/Animations/Combat
   m_LastFoldersGridSize: 67
   m_LastProjectPath: C:\Unity Projects\Syvalla
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 48700000
-    m_LastClickedID: 28744
-    m_ExpandedIDs: 000000004270000000ca9a3bffffff7f
+    m_SelectedIDs: 30710000
+    m_LastClickedID: 28976
+    m_ExpandedIDs: 00000000a4700000aa70000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -979,7 +979,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004270000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000a4700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1004,9 +1004,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b2a2ffff
-    m_LastClickedInstanceID: -23886
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: ea6d0000
+    m_LastClickedInstanceID: 28138
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28160
+  m_LastSelectedObjectID: 27972
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1085,8 +1085,8 @@ MonoBehaviour:
     y: 0
     width: 311.19995
     height: 722.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}

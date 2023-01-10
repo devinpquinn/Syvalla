@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private float camWideSize = 4f;
 
     //combat stuff
+    public GameObject combatInterface;
     [HideInInspector]
     public Enemy enemy;
 
@@ -164,6 +165,12 @@ public class PlayerController : MonoBehaviour
         decodeInterface.gameObject.SetActive(true);
 
         state = playerState.Translating;
+    }
+
+    public void SetupCombat()
+    {
+        combatInterface.SetActive(true);
+        UpdateText("Hold and release the button shown below.", true);
     }
 
     public void CamIn()
