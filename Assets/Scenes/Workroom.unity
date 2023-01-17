@@ -808,6 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 438755688}
+  - component: {fileID: 438755689}
   m_Layer: 5
   m_Name: CombatInterface
   m_TagString: Untagged
@@ -837,6 +838,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &438755689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438755687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49743e8432400da47811b9978236905d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  bowBrain: {fileID: 702388469}
+  letterBrain: {fileID: 1381666195}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,8 +964,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 6.1788974e-10, z: -1.2358345e-10, w: 1}
-  m_LocalPosition: {x: -0.00000001584566, y: 1.5, z: -14}
+  m_LocalRotation: {x: 0, y: 6.3160677e-10, z: -1.2632698e-10, w: 1}
+  m_LocalPosition: {x: -0.000000016120001, y: 1.5, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1080,6 +1096,7 @@ GameObject:
   - component: {fileID: 702388468}
   - component: {fileID: 702388467}
   - component: {fileID: 702388466}
+  - component: {fileID: 702388469}
   m_Layer: 5
   m_Name: Bow
   m_TagString: Untagged
@@ -1165,6 +1182,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702388464}
   m_CullTransparentMesh: 1
+--- !u!114 &702388469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702388464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435554949b043a341be3728fcb4c03c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letterButton: {fileID: 1381666195}
 --- !u!1 &746916596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989480f61a777f84db64e642694dce0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  maxHP: 100
+  currentHP: 100
   speed: 1
   camTarget: {fileID: 0}
 --- !u!1 &1084873901
@@ -2415,6 +2446,7 @@ GameObject:
   - component: {fileID: 1381666193}
   - component: {fileID: 1381666192}
   - component: {fileID: 1381666194}
+  - component: {fileID: 1381666195}
   m_Layer: 5
   m_Name: BowButton
   m_TagString: Untagged
@@ -2559,6 +2591,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1381666195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381666188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b224b81ed096a6d4bafe77580cc5866e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448202755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,7 +2704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.0790671e-21, z: -1.539465e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.1474909e-21, z: -1.5736754e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

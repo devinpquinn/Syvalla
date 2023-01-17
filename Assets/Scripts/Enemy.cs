@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float hp = 100f;
+    public float maxHP = 100f;
+    public float currentHP = 100f;
     public float speed = 1f;
 
     [HideInInspector]
@@ -17,6 +18,6 @@ public class Enemy : MonoBehaviour
 
     public void Activate()
     {
-
+        //start moving toward player
     }
 }
