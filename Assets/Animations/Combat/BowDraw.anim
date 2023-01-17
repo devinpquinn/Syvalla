@@ -80,4 +80,46 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SetDamageMult
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: SetDamageMult
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.2
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: SetDamageMult
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.4
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: SetDamageMult
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.8
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: SetDamageMult
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1.4
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: SetDamageMult
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0

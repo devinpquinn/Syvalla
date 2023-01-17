@@ -37,6 +37,7 @@ public class BowButtonHandler : MonoBehaviour
         //pick letter
     }
 
+    //animate out letter
     public void EndLetter()
     {
         anim.Play("BowButtonOut");
