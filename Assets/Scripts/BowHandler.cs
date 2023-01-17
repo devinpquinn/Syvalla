@@ -10,7 +10,8 @@ public class BowHandler : MonoBehaviour
     public BowButtonHandler letterButton;
     public TextMeshProUGUI multText;
 
-    private float damageMult = 0.1f;
+    [HideInInspector]
+    public float damageMult = 0.1f;
 
     private void Awake()
     {

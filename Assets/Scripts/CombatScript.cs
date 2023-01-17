@@ -10,8 +10,12 @@ public class CombatScript : MonoBehaviour
 
     public static CombatScript combat;
 
+    private Enemy enemy;
+    private float baseDamage = 10f;
+
     public BowHandler bowBrain;
     public BowButtonHandler letterBrain;
+    public HealthBarHandler hpBrain;
 
     private void Awake()
     {
@@ -30,6 +34,7 @@ public class CombatScript : MonoBehaviour
     private void OnEnable()
     {
         state = CombatState.Ready;
+        enemy = PlayerController.Instance.enemy;
     }
 
     private void Update()
@@ -50,7 +55,29 @@ public class CombatScript : MonoBehaviour
                 //release bow
                 bowBrain.StartRelease();
                 state = CombatState.Waiting;
+
+                DealDamage(bowBrain.damageMult);
             }
         }
+    }
+
+    public void DealDamage(float mult)
+    {
+        //decrement enemy HP
+        float damageDealt = baseDamage * mult;
+        enemy.currentHP = Mathf.Max(0, enemy.currentHP - damageDealt);
+
+        //check for death
+        if (enemy.currentHP > 0)
+        {
+            //update health bar
+            hpBrain.UpdateHP(enemy.currentHP / enemy.maxHP);
+        }
+        else
+        {
+            //kill
+            hpBrain.UpdateHP(0);
+        }
+        
     }
 }

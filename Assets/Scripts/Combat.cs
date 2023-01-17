@@ -43,11 +43,11 @@ public class Combat : MonoBehaviour
         //set state
         PlayerController.Instance.state = PlayerController.playerState.Fighting;
 
-        //display combat UI
-        PlayerController.Instance.SetupCombat();
-
         //activate enemy
         PlayerController.Instance.enemy = myEnemy;
+
+        //display combat UI
+        PlayerController.Instance.SetupCombat();
     }
 
     public void EndCombat()
