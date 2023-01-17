@@ -16,17 +16,18 @@ public class BowHandler : MonoBehaviour
     public void StartDraw()
     {
         anim.Play("BowDraw");
+        letterButton.StartHighlight();
     }
 
     public void StartRelease()
     {
         anim.Play("BowRelease");
-        letterButton.EndLetter();
+        letterButton.EndHighlight();
     }
 
     //bow finished firing
     public void EndRelease()
     {
-        letterButton.StartLetter();
+        letterButton.EndLetter();
     }
 }
