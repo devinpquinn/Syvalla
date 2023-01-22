@@ -41,7 +41,12 @@ public class CombatScript : MonoBehaviour
     {
         if(state == CombatState.Ready)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if ((Input.GetKeyDown(KeyCode.W) && letterBrain.currentLetter == "W") 
+                || (Input.GetKeyDown(KeyCode.A) && letterBrain.currentLetter == "A")
+                || (Input.GetKeyDown(KeyCode.S) && letterBrain.currentLetter == "S")
+                || (Input.GetKeyDown(KeyCode.D) && letterBrain.currentLetter == "D")
+                || (Input.GetKeyDown(KeyCode.E) && letterBrain.currentLetter == "E")
+                || (Input.GetKeyDown(KeyCode.Q) && letterBrain.currentLetter == "Q"))
             {
                 //start drawing bow
                 bowBrain.StartDraw();
@@ -50,7 +55,12 @@ public class CombatScript : MonoBehaviour
         }
         else if (state == CombatState.Drawing)
         {
-            if (Input.GetKeyUp(KeyCode.W))
+            if ((Input.GetKeyUp(KeyCode.W) && letterBrain.currentLetter == "W")
+                || (Input.GetKeyUp(KeyCode.A) && letterBrain.currentLetter == "A")
+                || (Input.GetKeyUp(KeyCode.S) && letterBrain.currentLetter == "S")
+                || (Input.GetKeyUp(KeyCode.D) && letterBrain.currentLetter == "D")
+                || (Input.GetKeyUp(KeyCode.E) && letterBrain.currentLetter == "E")
+                || (Input.GetKeyUp(KeyCode.Q) && letterBrain.currentLetter == "Q"))
             {
                 //release bow
                 bowBrain.StartRelease();

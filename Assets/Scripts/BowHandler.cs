@@ -39,11 +39,11 @@ public class BowHandler : MonoBehaviour
         //set damage multiplier
         if(damageMult == 1)
         {
-            multText.text = "1.0";
+            multText.text = "x1.0";
         }
         else
         {
-            multText.text = damageMult.ToString();
+            multText.text = "x" + damageMult.ToString();
         }
         
         multText.gameObject.SetActive(false);
