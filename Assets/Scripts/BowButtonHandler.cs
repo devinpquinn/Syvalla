@@ -35,10 +35,10 @@ public class BowButtonHandler : MonoBehaviour
     //pick and set a new letter, allow the player to start drawing
     public void StartLetter()
     {
-        anim.Play("BowButtonIn");
         CombatScript.combat.state = CombatScript.CombatState.Ready;
 
         //pick letter
+        currentLetter = letter.text;
         while(currentLetter == letter.text)
         {
             int letterKey = Random.Range(0, 6);
