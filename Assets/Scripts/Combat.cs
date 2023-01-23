@@ -45,6 +45,7 @@ public class Combat : MonoBehaviour
 
         //activate enemy
         PlayerController.Instance.enemy = myEnemy;
+        myEnemy.Activate();
 
         //display combat UI
         PlayerController.Instance.SetupCombat();
@@ -52,10 +53,12 @@ public class Combat : MonoBehaviour
 
     public void EndCombat()
     {
-        //hide combat UI
+        //animate out combat UI
 
         //reset camera
 
         //start post-battle interaction
+
+        //disable this
     }
 }

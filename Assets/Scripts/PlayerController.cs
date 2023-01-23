@@ -7,7 +7,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Interacting, Translating, Fighting };
+    public enum playerState { Normal, Interacting, Translating, Fighting, Dead };
 
     public playerState state;
 
@@ -171,6 +171,14 @@ public class PlayerController : MonoBehaviour
     {
         combatInterface.SetActive(true);
         UpdateText("Hold and release the button shown below.", true);
+    }
+
+    public void Die()
+    {
+        //deactivate
+        state = playerState.Dead;
+
+        //animate out combat UI
     }
 
     public void CamIn()

@@ -87,6 +87,7 @@ public class CombatScript : MonoBehaviour
         {
             //kill
             hpBrain.UpdateHP(0);
+            enemy.Die();
         }
         
     }
