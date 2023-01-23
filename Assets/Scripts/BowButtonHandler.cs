@@ -35,7 +35,7 @@ public class BowButtonHandler : MonoBehaviour
     //pick and set a new letter, allow the player to start drawing
     public void StartLetter()
     {
-        CombatScript.combat.state = CombatScript.CombatState.Ready;
+        CombatScript.instance.state = CombatScript.CombatState.Ready;
 
         //pick letter
         currentLetter = letter.text;

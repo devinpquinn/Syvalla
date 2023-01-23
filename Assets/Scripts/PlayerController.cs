@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private float camWideSize = 4f;
 
     //combat stuff
-    public GameObject combatInterface;
     [HideInInspector]
     public Enemy enemy;
 
@@ -169,16 +168,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetupCombat()
     {
-        combatInterface.SetActive(true);
+        CombatScript.instance.CombatEnabled();
         UpdateText("Hold and release the button shown below.", true);
-    }
-
-    public void Die()
-    {
-        //deactivate
-        state = playerState.Dead;
-
-        //animate out combat UI
     }
 
     public void CamIn()
@@ -202,11 +193,8 @@ public class PlayerController : MonoBehaviour
 
     public void CamDisengage()
     {
-        //tighten camera to interaction framing
-
         //remove enemy from target group
-
-        //remember to reset damping values at end of interaction
+        targetGroup.RemoveMember(targetGroup.m_Targets[1].target);
     }
 
     public void AddToCamera(Transform t, float weight, float radius)

@@ -39,20 +39,33 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        //die
         state = enemyState.Dead;
+        Debug.Log("Enemy killed!");
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        //end combat
+        CombatScript.combat.EndCombat();
     }
 
     public void Attack()
     {
+        //attack
         state = enemyState.Attacking;
+
+        //disable combat
+        CombatScript.instance.CombatDisabled();
+
+        //kill player
+        PlayerController.Instance.state = PlayerController.playerState.Dead;
+        Debug.Log("Player killed!");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (state == enemyState.Moving && collision.CompareTag("Player"))
         {
             Attack();
-            PlayerController.Instance.Die();
         }
     }
 

@@ -8,7 +8,10 @@ public class CombatScript : MonoBehaviour
 
     public CombatState state;
 
-    public static CombatScript combat;
+    public static CombatScript instance;
+    public static Combat combat;
+
+    private GameObject combatInterface;
 
     private Enemy enemy;
     private float baseDamage = 10f;
@@ -20,21 +23,36 @@ public class CombatScript : MonoBehaviour
     private void Awake()
     {
         //singleton
-        if (combat != null && combat != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            combat = this;
+            instance = this;
 
         }
+
+        //variable fetching
+        combatInterface = transform.Find("CombatInterface").gameObject;
     }
 
-    private void OnEnable()
+    public void CombatEnabled()
     {
         state = CombatState.Ready;
         enemy = PlayerController.Instance.enemy;
+        combatInterface.SetActive(true);
+    }
+
+    public void CombatDisabled()
+    {
+        state = CombatState.Waiting;
+
+        //hide interface
+        combatInterface.SetActive(false);
+
+        //clear text
+        PlayerController.Instance.UpdateText("", true);
     }
 
     private void Update()

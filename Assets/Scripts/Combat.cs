@@ -49,16 +49,26 @@ public class Combat : MonoBehaviour
 
         //display combat UI
         PlayerController.Instance.SetupCombat();
+
+        //set variable in manager
+        CombatScript.combat = this;
     }
 
     public void EndCombat()
     {
         //animate out combat UI
+        CombatScript.instance.CombatDisabled();
 
-        //reset camera
+        //start coroutine
+        StartCoroutine(DoEndCombat());
+    }
 
-        //start post-battle interaction
+    IEnumerator DoEndCombat()
+    {
+        yield return new WaitForSeconds(2);
 
-        //disable this
+        //start post-combat interaction
+        PlayerController.Instance.CamDisengage();
+        interactAfter.Interact();
     }
 }
