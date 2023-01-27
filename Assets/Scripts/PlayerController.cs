@@ -7,7 +7,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Interacting, Translating, Fighting, Dead };
+    public enum playerState { Normal, Turning, Interacting, Translating, Petting, Fighting, Dead };
 
     public playerState state;
 
