@@ -878,8 +878,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 6.883454e-10, z: -1.376752e-10, w: 1}
-  m_LocalPosition: {x: -0.000000017254774, y: 1.5, z: -14}
+  m_LocalRotation: {x: 0, y: 6.914629e-10, z: -1.3829873e-10, w: 1}
+  m_LocalPosition: {x: -0.000000017317124, y: 1.5, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2621,7 +2621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.4305163e-21, z: -1.7151818e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.446067e-21, z: -1.722957e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3630,7 +3630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237122421030040847, guid: dfcc47a7545cff042b49f0cec9be2df4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4237122421285354007, guid: dfcc47a7545cff042b49f0cec9be2df4, type: 3}
       propertyPath: m_Color.b
@@ -3689,7 +3689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6217059355322137103
 Transform:
   m_ObjectHideFlags: 0
@@ -3779,7 +3779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199254000177933958, guid: ebf45bcc9af282c4f9af4f2dbb047506, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebf45bcc9af282c4f9af4f2dbb047506, type: 3}
@@ -3840,7 +3840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493138359179128859, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8493138359441784579, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_Color.b

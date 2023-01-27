@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (state == playerState.Interacting)
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && interaction != null)
+            if((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space)) && interaction != null)
             {
                 //advance interaction
                 scroller.Clicked();
