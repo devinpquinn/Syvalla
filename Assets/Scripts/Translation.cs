@@ -29,7 +29,7 @@ public class Translation : MonoBehaviour
         PlayerController.Instance.translation = this;
 
         //set header and footer
-        PlayerController.Instance.UpdateText("Scroll mouse to translate. Press 'Q' to return.", true);
+        PlayerController.Instance.UpdateText("Scroll mouse over a word to translate. Press 'Q' to return.", true);
         PlayerController.Instance.UpdateText(description);
 
         //animate out pip

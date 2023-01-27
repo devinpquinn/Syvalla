@@ -46,6 +46,8 @@ public class InteractPip : MonoBehaviour
                 {
                     PlayerController.Instance.UpdateText("", true);
                 }
+
+                PlayerController.Instance.interaction = null;
             }
         }
     }

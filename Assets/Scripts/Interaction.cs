@@ -25,17 +25,10 @@ public class Interaction : MonoBehaviour
         PlayerController.Instance.interaction = this;
 
         //set header
-        if(lines.Count > 1)
-        {
-            PlayerController.Instance.UpdateText("Click to continue...", true);
-        }
-        else
-        {
-            PlayerController.Instance.UpdateText("Click to return.", true);
-        }
+        PlayerController.Instance.UpdateText("", true);
 
         //animate out pip
-        if(gameObject.GetComponent<InteractPip>() != null)
+        if (gameObject.GetComponent<InteractPip>() != null)
         {
             gameObject.GetComponent<Animator>().Play("PipSelected");
         }
@@ -60,11 +53,6 @@ public class Interaction : MonoBehaviour
         if(lines.Count > index)
         {
             //continue dialogue
-            if(lines.Count == index + 1)
-            {
-                //this is the last line
-                PlayerController.Instance.UpdateText("Click to return.", true);
-            }
             PlayerController.Instance.UpdateText(lines[index]);
         }
         else
