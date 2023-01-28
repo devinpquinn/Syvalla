@@ -7,7 +7,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Turning, Interacting, Translating, Petting, Fighting, Dead };
+    public enum playerState { Normal, Turning, Interacting, Translating, Petting, Fighting, Dead, Locked };
 
     public playerState state;
 
@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour
     public DecodeScript decodeInterface;
     private TextMeshProUGUI decodeText;
 
+    //turnback stuff
+    public GameObject turnbackDisplay;
+
     //storage and retrieval stuff
     private static PlayerController player;
     public static PlayerController Instance { get { return player; } }
@@ -50,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //singleton
-        if (player != null && player != this)
+        if(player != null && player != this)
         {
             Destroy(gameObject);
         }
@@ -74,7 +77,7 @@ public class PlayerController : MonoBehaviour
         if(state == playerState.Normal)
         {
             //movement vector
-            if (Input.GetKey(KeyCode.D))
+            if(Input.GetKey(KeyCode.D))
             {
                 movement.x = 1;
             }
@@ -84,19 +87,26 @@ public class PlayerController : MonoBehaviour
             }
 
             //interaction trigger
-            if (Input.GetKeyDown(KeyCode.W))
+            if(Input.GetKeyDown(KeyCode.W))
             {
-                if (interaction != null)
+                if(interaction != null)
                 {
                     interaction.Interact();
                 }
-                else if (translation != null)
+                else if(translation != null)
                 {
                     translation.StartTranslation();
                 }
             }
+
+            //turnback trigger
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                turnbackDisplay.SetActive(true);
+                state = playerState.Turning;
+            }
         }
-        else if (state == playerState.Interacting)
+        else if(state == playerState.Interacting)
         {
             if((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space)) && interaction != null)
             {
@@ -106,17 +116,25 @@ public class PlayerController : MonoBehaviour
         }
         else if(state == playerState.Translating)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && translation != null)
+            if(Input.GetKeyDown(KeyCode.Q) && translation != null)
             {
                 //return from translation
                 translation.EndTranslation();
+            }
+        }
+        else if(state == playerState.Turning)
+        {
+            if(Input.GetKeyUp(KeyCode.A))
+            {
+                turnbackDisplay.SetActive(false);
+                state = playerState.Normal;
             }
         }
     }
 
     private void FixedUpdate()
     {
-        if (state == playerState.Normal)
+        if(state == playerState.Normal)
         {
             //player movement
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
@@ -126,7 +144,7 @@ public class PlayerController : MonoBehaviour
     public void UpdateText(string line, bool top = false)
     {
         //check for events
-        if (line.StartsWith("{"))
+        if(line.StartsWith("{"))
         {
             //read key
             int key = int.Parse(line.Substring(1, 1));
@@ -142,7 +160,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //set text
-        if (top)
+        if(top)
         {
             topText.text = line;
         }

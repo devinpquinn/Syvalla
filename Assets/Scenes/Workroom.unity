@@ -663,6 +663,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   translation: {fileID: 0}
   decodeInterface: {fileID: 746916598}
+  turnbackDisplay: {fileID: 2057395545}
 --- !u!61 &306298831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -952,8 +953,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 7.1390893e-10, z: -1.4278814e-10, w: 1}
-  m_LocalPosition: {x: -0.000000017766045, y: 1.5, z: -14}
+  m_LocalRotation: {x: 0, y: 7.1764994e-10, z: -1.4353638e-10, w: 1}
+  m_LocalPosition: {x: -0.000000017840865, y: 1.5, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2568,7 +2569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.5580334e-21, z: -1.7789374e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.5766942e-21, z: -1.7882675e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3408,6 +3409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2057395546}
   - component: {fileID: 2057395547}
+  - component: {fileID: 2057395548}
   m_Layer: 5
   m_Name: TurnBackDisplay
   m_TagString: Untagged
@@ -3456,6 +3458,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2057395548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057395545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517160e8305faca4b9b39680029bf411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2095998620
 GameObject:
   m_ObjectHideFlags: 0
