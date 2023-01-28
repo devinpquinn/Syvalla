@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     public CinemachineTargetGroup targetGroup;
 
     //camera transition values
-    private float camTightSize = 3f;
-    private float camWideSize = 4f;
+    private float camTightSize = 7f;
+    private float camWideSize = 8f;
 
     //combat stuff
     [HideInInspector]
@@ -200,13 +200,13 @@ public class PlayerController : MonoBehaviour
         ResizeCam(camWideSize);
     }
 
-    public void CamEngage(Transform enemy, float weight = 1, float radius = 4)
+    public void CamEngage(Transform enemy, float weight = 1)
     {
         //widen camera from combat framing
         CamOut();
 
         //add enemy to camera
-        AddToCamera(enemy, weight, radius);
+        AddToCamera(enemy, weight, camWideSize);
     }
 
     public void CamDisengage()
