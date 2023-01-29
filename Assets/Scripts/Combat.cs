@@ -22,6 +22,9 @@ public class Combat : MonoBehaviour
             {
                 //initiate pre-combat interaction
                 interactBefore.Interact();
+
+                //alert cat
+                CatController.Instance.SetDanger(true);
             }
         }
     }
@@ -70,5 +73,8 @@ public class Combat : MonoBehaviour
         //start post-combat interaction
         PlayerController.Instance.CamDisengage();
         interactAfter.Interact();
+
+        //calm cat
+        CatController.Instance.SetDanger(false);
     }
 }

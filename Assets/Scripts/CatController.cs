@@ -81,4 +81,9 @@ public class CatController : MonoBehaviour
             }
         }
     }
+
+    public void SetDanger(bool dangerous)
+    {
+        anim.SetBool("Danger", dangerous);
+    }
 }
