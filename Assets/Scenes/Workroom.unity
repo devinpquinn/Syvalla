@@ -939,8 +939,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 7.519425e-10, z: -1.503952e-10, w: 1}
-  m_LocalPosition: {x: -0.000000024377652, y: 1.5, z: -18}
+  m_LocalRotation: {x: 0, y: 7.544365e-10, z: -1.5089402e-10, w: 1}
+  m_LocalPosition: {x: -0.000000024427532, y: 1.5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2555,7 +2555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.7477534e-21, z: -1.8737933e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.7601942e-21, z: -1.8800133e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2678,7 +2678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607237728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35, y: -0.2, z: 0}
+  m_LocalPosition: {x: 35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3603,6 +3603,7 @@ GameObject:
   - component: {fileID: 2134404844}
   - component: {fileID: 2134404842}
   - component: {fileID: 2134404841}
+  - component: {fileID: 2134404845}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -3672,7 +3673,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a82a85825f511f42949f5c05868be30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9d25317dd63133458db9867175ac490, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3713,6 +3714,26 @@ MonoBehaviour:
   state: 0
   minOffset: 1.5
   maxOffset: 2
+--- !u!95 &2134404845
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134404840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e7206a52a14a8140b38abad9df18851, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2435065446715107859
 PrefabInstance:
   m_ObjectHideFlags: 0

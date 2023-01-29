@@ -14,6 +14,9 @@ public class CatController : MonoBehaviour
     private float moveSpeed = 2f;
     Vector2 movement = new Vector2(1, 0);
 
+    //animation stuff
+    private Animator anim;
+
     //distance triggers
     [HideInInspector]
     public float minOffset = 1.5f;
@@ -39,6 +42,7 @@ public class CatController : MonoBehaviour
 
         //variable fetching and setting
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -61,6 +65,7 @@ public class CatController : MonoBehaviour
             {
                 //we've caught up
                 state = catState.Idle;
+                anim.SetBool("Moving", false);
             }
 
         }
@@ -72,6 +77,7 @@ public class CatController : MonoBehaviour
                 //start moving
                 moveSpeed = PlayerController.Instance.moveSpeed;
                 state = catState.Moving;
+                anim.SetBool("Moving", true);
             }
         }
     }
