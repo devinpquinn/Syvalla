@@ -960,8 +960,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 7.881056e-10, z: -1.5762813e-10, w: 1}
-  m_LocalPosition: {x: -0.000000025100913, y: 1.5, z: -18}
+  m_LocalRotation: {x: 0, y: 7.937171e-10, z: -1.5875048e-10, w: 1}
+  m_LocalPosition: {x: -0.000000025213144, y: 1.5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1629,7 +1629,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.25, b: 0.25, a: 1}
+  m_fontColor: {r: 1, g: 0.5, b: 0.5, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2576,7 +2576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.9281434e-21, z: -1.9639843e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.956135e-21, z: -1.9779793e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3816,11 +3816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237122421285354007, guid: dfcc47a7545cff042b49f0cec9be2df4, type: 3}
       propertyPath: m_Color.b
-      value: 0.2509804
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4237122421285354007, guid: dfcc47a7545cff042b49f0cec9be2df4, type: 3}
       propertyPath: m_Color.g
-      value: 0.2509804
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4237122421285354007, guid: dfcc47a7545cff042b49f0cec9be2df4, type: 3}
       propertyPath: m_Color.r
@@ -4026,11 +4026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493138359441784579, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_Color.b
-      value: 0.2509804
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8493138359441784579, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_Color.g
-      value: 0.2509804
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8493138359441784579, guid: e8bc9d6cb95ac254d9f99f7b9b1fbf86, type: 3}
       propertyPath: m_Color.r
