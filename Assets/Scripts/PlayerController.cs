@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1.5f;
     Vector2 movement = Vector2.zero;
 
+    //animation stuff
+    private Animator anim;
+
     //interaction stuff
     [HideInInspector]
     public Interaction interaction;
@@ -67,6 +70,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         vcam = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
 
+        anim = GetComponent<Animator>();
+
         scroller = bottomText.gameObject.GetComponent<TextScroller>();
 
         decodeText = decodeInterface.transform.Find("DecodePanel").Find("DecodeText").GetComponent<TextMeshProUGUI>();
@@ -74,12 +79,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(state == playerState.Normal)
+        anim.SetBool("Moving", false);
+
+        if (state == playerState.Normal)
         {
             //movement vector
             if(Input.GetKey(KeyCode.D))
             {
                 movement.x = 1;
+                anim.SetBool("Moving", true);
             }
             else
             {
