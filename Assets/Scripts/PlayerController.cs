@@ -13,8 +13,7 @@ public class PlayerController : MonoBehaviour
 
     //movement stuff
     private Rigidbody2D rb;
-    [HideInInspector]
-    public float moveSpeed = 1.5f;
+    public float moveSpeed = 2f;
     Vector2 movement = Vector2.zero;
 
     //animation stuff
@@ -79,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        //animation variables
         anim.SetBool("Moving", false);
 
         if (state == playerState.Normal)
