@@ -190,6 +190,15 @@ public class PlayerController : MonoBehaviour
         decodeInterface.gameObject.SetActive(true);
 
         state = playerState.Translating;
+
+        anim.SetBool("Translating", true);
+    }
+
+    public void EndTranslation()
+    {
+        state = PlayerController.playerState.Normal;
+        translation = null;
+        anim.SetBool("Translating", false);
     }
 
     public void SetupCombat()

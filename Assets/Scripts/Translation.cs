@@ -54,8 +54,7 @@ public class Translation : MonoBehaviour
         PlayerController.Instance.ClearText();
 
         //reset state
-        PlayerController.Instance.state = PlayerController.playerState.Normal;
-        PlayerController.Instance.translation = null;
+        PlayerController.Instance.EndTranslation();
 
         //animate camera out
         PlayerController.Instance.CamOut();
