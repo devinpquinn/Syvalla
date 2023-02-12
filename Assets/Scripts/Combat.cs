@@ -29,9 +29,9 @@ public class Combat : MonoBehaviour
         }
     }
 
-    public void Danger(bool entering)
+    public void Danger(bool value)
     {
-        PlayerController.Instance.Danger(entering);
+        PlayerController.Instance.SetAnimBool("Danger", value);
     }
 
     public void StartCombatCamera()
@@ -60,12 +60,18 @@ public class Combat : MonoBehaviour
 
         //set variable in manager
         CombatScript.combat = this;
+
+        //tell player animator they're in combat
+        PlayerController.Instance.SetAnimBool("Combat", true);
     }
 
     public void EndCombat()
     {
         //animate out combat UI
         CombatScript.instance.CombatDisabled();
+
+        //tell player to lower bow
+        PlayerController.Instance.SetAnimBool("Combat", false);
 
         //start coroutine
         StartCoroutine(DoEndCombat());
@@ -81,5 +87,8 @@ public class Combat : MonoBehaviour
 
         //calm cat
         CatController.Instance.SetDanger(false);
+
+        //stow bow
+        PlayerController.Instance.SetAnimBool("Danger", false);
     }
 }

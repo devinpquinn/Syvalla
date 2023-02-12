@@ -207,9 +207,9 @@ public class PlayerController : MonoBehaviour
         UpdateText("Hold and release the button shown below.", true);
     }
 
-    public void Danger(bool entering)
+    public void SetAnimBool(string key, bool value)
     {
-        anim.SetBool("Danger", entering);
+        anim.SetBool(key, value);
     }
 
     public void CamIn()

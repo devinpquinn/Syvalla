@@ -22,6 +22,8 @@ public class BowHandler : MonoBehaviour
     public void StartDraw()
     {
         anim.Play("BowDraw");
+        PlayerController.Instance.SetAnimBool("Drawing", true);
+
         letterButton.StartHighlight();
     }
 
@@ -34,6 +36,8 @@ public class BowHandler : MonoBehaviour
     public void StartRelease()
     {
         anim.Play("BowRelease");
+        PlayerController.Instance.SetAnimBool("Drawing", false);
+
         letterButton.EndHighlight();
 
         //set damage multiplier
