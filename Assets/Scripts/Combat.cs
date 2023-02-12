@@ -29,6 +29,11 @@ public class Combat : MonoBehaviour
         }
     }
 
+    public void Danger(bool entering)
+    {
+        PlayerController.Instance.Danger(entering);
+    }
+
     public void StartCombatCamera()
     {
         //camera transition from interaction framing to combat framing

@@ -154,7 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - Uh oh... is that an enemy I hear?
-  - '{0}This line will set the camera to combat mode.'
+  - '{0}This line will cause the player to draw their weapon.'
+  - '{1}This line will set the camera to combat mode.'
   - Ok, here we go.
   onStart:
     m_PersistentCalls:
@@ -179,6 +180,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6217059355322137104}
         m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Danger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6217059355322137104}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
         m_MethodName: StartCombatCamera
         m_Mode: 1
         m_Arguments:
@@ -189,8 +204,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls: []
   skipCamIn: 0
   skipCamOut: 1
 --- !u!4 &13046858
@@ -646,7 +659,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2, y: 2.25}
+    oldSize: {x: 2, y: 2.5}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -939,8 +952,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 7.987051e-10, z: -1.5974813e-10, w: 1}
-  m_LocalPosition: {x: -0.000000025312904, y: 1.5, z: -18}
+  m_LocalRotation: {x: 0, y: 8.011991e-10, z: -1.6024695e-10, w: 1}
+  m_LocalPosition: {x: -0.000000025362784, y: 1.5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2555,7 +2568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -3.9810163e-21, z: -1.9904195e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -3.9934567e-21, z: -1.9966395e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2716,14 +2729,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - Whew, we did it!
-  - Now we move on.
+  - '{0}Now we move on.'
   onStart:
     m_PersistentCalls:
       m_Calls: []
   onEnd:
     m_PersistentCalls:
       m_Calls: []
-  inLine: []
+  inLine:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6217059355322137104}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Danger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   skipCamIn: 0
   skipCamOut: 0
 --- !u!4 &1615895590

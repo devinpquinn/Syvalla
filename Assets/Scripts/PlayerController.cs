@@ -207,6 +207,11 @@ public class PlayerController : MonoBehaviour
         UpdateText("Hold and release the button shown below.", true);
     }
 
+    public void Danger(bool entering)
+    {
+        anim.SetBool("Danger", entering);
+    }
+
     public void CamIn()
     {
         ResizeCam(camTightSize);
