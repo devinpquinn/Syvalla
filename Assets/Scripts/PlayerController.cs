@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     //combat stuff
     [HideInInspector]
     public Enemy enemy;
+    private LineRenderer line;
 
     //translation stuff
     [HideInInspector]
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         scroller = bottomText.gameObject.GetComponent<TextScroller>();
+
+        line = GetComponent<LineRenderer>();
 
         decodeText = decodeInterface.transform.Find("DecodePanel").Find("DecodeText").GetComponent<TextMeshProUGUI>();
     }
@@ -205,6 +208,35 @@ public class PlayerController : MonoBehaviour
     {
         CombatScript.instance.CombatEnabled();
         UpdateText("Hold and release the button shown below.", true);
+    }
+
+    public void ArrowTrail()
+    {
+        line.enabled = true;
+
+        //set end point
+        float offsetY = 1f;
+        Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x - offsetY, line.GetPosition(0).y, 0);
+        line.SetPosition(1, targetPos);
+
+        //fade color
+        StartCoroutine(FadeArrowTrail());
+    }
+
+    IEnumerator FadeArrowTrail()
+    {
+        float lineInterval = 0.5f;
+        float timer = 0;
+
+        line.endColor = Color.red;
+        while(timer < lineInterval)
+        {
+            line.endColor = Color.Lerp(Color.red, Color.clear, (timer / lineInterval));
+            timer += Time.deltaTime;
+        }
+
+        line.endColor = Color.clear;
+        yield return null;
     }
 
     public void SetAnimBool(string key, bool value)

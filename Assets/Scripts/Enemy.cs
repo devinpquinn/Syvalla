@@ -59,8 +59,8 @@ public class Enemy : MonoBehaviour
 
         while(timer < damageInterval)
         {
-            timer += Time.deltaTime;
             sprite.color = Color.Lerp(Color.red, Color.white, (timer / damageInterval));
+            timer += Time.deltaTime;
             yield return null;
         }
 

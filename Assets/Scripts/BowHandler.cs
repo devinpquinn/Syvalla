@@ -38,6 +38,9 @@ public class BowHandler : MonoBehaviour
         anim.Play("BowRelease");
         PlayerController.Instance.SetAnimBool("Drawing", false);
 
+        //trigger player line renderer
+        PlayerController.Instance.ArrowTrail();
+
         letterButton.EndHighlight();
 
         //set damage multiplier
