@@ -11,11 +11,14 @@ public class Enemy : MonoBehaviour
 
     //movement stuff
     private Rigidbody2D rb;
-    private float moveSpeed = 0.5f;
+    private float moveSpeed = 0.7f;
     Vector2 movement = new Vector2(-1, 0);
 
+    //animation stuff
+    private Animator anim;
+
     //health stuff
-    public float maxHP = 100f;
+    public float maxHP;
     [HideInInspector]
     public float currentHP;
 
@@ -27,6 +30,7 @@ public class Enemy : MonoBehaviour
     {
         state = enemyState.Idle;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         currentHP = maxHP;
         camTarget = transform.Find("Enemy Camera Target");
     }
@@ -35,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         //start moving toward player
         state = enemyState.Moving;
+        anim.SetBool("Moving", true);
     }
 
     public void Die()
@@ -43,6 +48,9 @@ public class Enemy : MonoBehaviour
         state = enemyState.Dead;
         Debug.Log("Enemy killed!");
         GetComponent<BoxCollider2D>().enabled = false;
+
+        //death animation
+
 
         //end combat
         CombatScript.combat.EndCombat();
