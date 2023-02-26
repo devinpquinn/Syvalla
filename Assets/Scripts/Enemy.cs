@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     //animation stuff
     private Animator anim;
+    private SpriteRenderer sprite;
+    private float damageInterval = 0.5f;
 
     //health stuff
     public float maxHP;
@@ -31,6 +33,7 @@ public class Enemy : MonoBehaviour
         state = enemyState.Idle;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
         currentHP = maxHP;
         camTarget = transform.Find("Enemy Camera Target");
     }
@@ -40,6 +43,28 @@ public class Enemy : MonoBehaviour
         //start moving toward player
         state = enemyState.Moving;
         anim.SetBool("Moving", true);
+    }
+
+    public void Damage()
+    {
+        //damage animation
+        StartCoroutine(DoDamage());
+    }
+
+    IEnumerator DoDamage()
+    {
+        sprite.color = Color.red;
+
+        float timer = 0f;
+
+        while(timer < damageInterval)
+        {
+            timer += Time.deltaTime;
+            sprite.color = Color.Lerp(Color.red, Color.white, (timer / damageInterval));
+            yield return null;
+        }
+
+        sprite.color = Color.white;
     }
 
     public void Die()

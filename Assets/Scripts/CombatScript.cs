@@ -100,6 +100,9 @@ public class CombatScript : MonoBehaviour
         {
             //update health bar
             hpBrain.UpdateHP(enemy.currentHP / enemy.maxHP);
+
+            //enemy damage animation
+            enemy.Damage();
         }
         else
         {
