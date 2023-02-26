@@ -214,13 +214,20 @@ public class PlayerController : MonoBehaviour
     {
         line.enabled = true;
 
-        //set end point
-        float offsetY = 1f;
-        Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x - offsetY, line.GetPosition(0).y, 0);
+        //set start and end point
+        //start point;
+        Vector3 startPos = new Vector3(0, 0, 0);
+        startPos.x = transform.position.x - 0.5f;
+        startPos.y = 1.6875f;
+        line.SetPosition(0, startPos);
+
+        //end point
+        float offsetX = -0.5f;
+        Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, line.GetPosition(0).y, 0);
         line.SetPosition(1, targetPos);
 
         //fade color
-        StartCoroutine(FadeArrowTrail());
+        //StartCoroutine(FadeArrowTrail());
     }
 
     IEnumerator FadeArrowTrail()
