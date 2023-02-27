@@ -223,7 +223,8 @@ public class PlayerController : MonoBehaviour
 
         //end point
         float offsetX = -0.25f;
-        Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, line.GetPosition(0).y, 0);
+        //Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, line.GetPosition(0).y, 0);
+        Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, 1.5f, 0);
         line.SetPosition(1, targetPos);
 
         //fade color
