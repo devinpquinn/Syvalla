@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Enemy enemy;
     private LineRenderer line;
+    public GameObject bloodSpray;
 
     //translation stuff
     [HideInInspector]
@@ -226,6 +227,9 @@ public class PlayerController : MonoBehaviour
         //Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, line.GetPosition(0).y, 0);
         Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, 1.5f, 0);
         line.SetPosition(1, targetPos);
+
+        //spawn blood spray
+        Instantiate(bloodSpray, targetPos, Quaternion.identity);
 
         //fade color
         StartCoroutine(FadeArrowTrail());
