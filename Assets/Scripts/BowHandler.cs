@@ -39,7 +39,7 @@ public class BowHandler : MonoBehaviour
         PlayerController.Instance.SetAnimBool("Drawing", false);
 
         //trigger player line renderer
-        PlayerController.Instance.ArrowTrail();
+        PlayerController.Instance.ArrowTrail(damageMult);
 
         letterButton.EndHighlight();
 

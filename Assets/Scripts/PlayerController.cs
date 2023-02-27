@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
         UpdateText("Hold and release the button shown below.", true);
     }
 
-    public void ArrowTrail()
+    public void ArrowTrail(float damageMult)
     {
         line.enabled = true;
 
@@ -229,7 +229,9 @@ public class PlayerController : MonoBehaviour
         line.SetPosition(1, targetPos);
 
         //spawn blood spray
-        Instantiate(bloodSpray, targetPos, Quaternion.identity);
+        GameObject blood = Instantiate(bloodSpray, targetPos, Quaternion.identity);
+        blood.GetComponent<ParticleSystem>().emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 24f * damageMult) });
+        Debug.Log("damage multiplier " + damageMult + ", particles " + 48f * damageMult);
 
         //fade color
         StartCoroutine(FadeArrowTrail());
