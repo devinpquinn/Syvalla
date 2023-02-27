@@ -95,14 +95,14 @@ public class CombatScript : MonoBehaviour
         float damageDealt = baseDamage * mult;
         enemy.currentHP = Mathf.Max(0, enemy.currentHP - damageDealt);
 
+        //enemy damage animation
+        enemy.Damage(mult);
+
         //check for death
         if (enemy.currentHP > 0)
         {
             //update health bar
             hpBrain.UpdateHP(enemy.currentHP / enemy.maxHP);
-
-            //enemy damage animation
-            enemy.Damage();
         }
         else
         {

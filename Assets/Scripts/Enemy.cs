@@ -45,10 +45,13 @@ public class Enemy : MonoBehaviour
         anim.SetBool("Moving", true);
     }
 
-    public void Damage()
+    public void Damage(float mult)
     {
-        //damage animation
+        //damage flash
         StartCoroutine(DoDamage());
+
+        //knockback
+        transform.Translate(new Vector3(0.15f * mult, 0, 0));
     }
 
     IEnumerator DoDamage()
