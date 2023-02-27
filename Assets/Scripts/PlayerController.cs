@@ -217,33 +217,33 @@ public class PlayerController : MonoBehaviour
         //set start and end point
         //start point;
         Vector3 startPos = new Vector3(0, 0, 0);
-        startPos.x = transform.position.x - 0.5f;
+        startPos.x = transform.position.x - 1f;
         startPos.y = 1.6875f;
         line.SetPosition(0, startPos);
 
         //end point
-        float offsetX = -0.5f;
+        float offsetX = -0.25f;
         Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, line.GetPosition(0).y, 0);
         line.SetPosition(1, targetPos);
 
         //fade color
-        //StartCoroutine(FadeArrowTrail());
+        StartCoroutine(FadeArrowTrail());
     }
 
     IEnumerator FadeArrowTrail()
     {
-        float lineInterval = 0.5f;
-        float timer = 0;
+        float lineInterval = 0.25f;
+        float timer = 0f;
 
         line.endColor = Color.red;
         while(timer < lineInterval)
         {
             line.endColor = Color.Lerp(Color.red, Color.clear, (timer / lineInterval));
             timer += Time.deltaTime;
+            yield return null;
         }
 
         line.endColor = Color.clear;
-        yield return null;
     }
 
     public void SetAnimBool(string key, bool value)
