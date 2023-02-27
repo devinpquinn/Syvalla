@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
         //spawn blood spray
         GameObject blood = Instantiate(bloodSpray, targetPos, Quaternion.identity);
         blood.GetComponent<ParticleSystem>().emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 24f * damageMult) });
-        Debug.Log("damage multiplier " + damageMult + ", particles " + 48f * damageMult);
+        Debug.Log("damage multiplier " + damageMult + ", particles " + 16f * damageMult);
 
         //fade color
         StartCoroutine(FadeArrowTrail());
