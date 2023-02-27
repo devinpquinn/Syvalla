@@ -233,7 +233,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator FadeArrowTrail()
     {
-        float lineInterval = 0.25f;
+        float lineInterval = 0.2f;
         float timer = 0f;
 
         line.endColor = Color.red;
