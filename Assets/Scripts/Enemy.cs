@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public Transform camTarget;
 
+    //fx stuff
+    public GameObject bloodDrip;
+
     private void Awake()
     {
         state = enemyState.Idle;
@@ -52,6 +55,9 @@ public class Enemy : MonoBehaviour
 
         //knockback
         transform.Translate(new Vector3(0.15f * mult, 0, 0));
+
+        //bleed
+        Instantiate(bloodDrip, this.transform);
     }
 
     IEnumerator DoDamage()
