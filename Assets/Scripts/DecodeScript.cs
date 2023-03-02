@@ -8,7 +8,8 @@ public class DecodeScript : MonoBehaviour
     public TMP_Text decodeText;
 
     [HideInInspector]
-    public string rawText;
+    public string rawText; //plain text of text box
+    private string trueText; //stores text of decoded message for comparison
 
     private int lastHovered = -1;
 
@@ -80,8 +81,15 @@ public class DecodeScript : MonoBehaviour
         //text of target word
         string targetWord = decodeText.textInfo.wordInfo[index].GetWord();
 
+        //check if we have highlighted a decoded word by comparing substrings of rawText and trueText
+        string colorTag = "white";
+        if (CheckWord(index))
+        {
+            colorTag = "red";
+        }
+
         //update text with rich text tags
-        decodeText.text = decodeText.text.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=white>" + targetWord + "</color>" + decodeText.text.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+        decodeText.text = decodeText.text.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=" + colorTag + ">" + targetWord + "</color>" + decodeText.text.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
     }
 
     private void ScrubWord(int index, bool pos = true)
@@ -125,7 +133,26 @@ public class DecodeScript : MonoBehaviour
         //update rawText
         rawText = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + newWord + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
 
-        decodeText.text = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=white>" + newWord + "</color>" + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+        //check if we have scrubbed to a decoded word by comparing substrings of rawText and trueText
+        string colorTag = "white";
+        if(CheckWord(index))
+        {
+            colorTag = "red";
+        }
+
+        decodeText.text = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=" + colorTag + ">" + newWord + "</color>" + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+    }
+
+    private bool CheckWord(int index)
+    {
+        if (rawText.Substring(decodeText.textInfo.wordInfo[index].firstCharacterIndex, decodeText.textInfo.wordInfo[index].characterCount) == trueText.Substring(decodeText.textInfo.wordInfo[index].firstCharacterIndex, decodeText.textInfo.wordInfo[index].characterCount))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private string ScrambleWord(string word)
@@ -152,6 +179,7 @@ public class DecodeScript : MonoBehaviour
     private void InitialScramble()
     {
         rawText = decodeText.text;
+        trueText = rawText;
 
         for(int i = 0; i < decodeText.textInfo.wordCount; i++)
         {
