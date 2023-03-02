@@ -131,27 +131,6 @@ public class DecodeScript : MonoBehaviour
         }
     }
 
-    private void HighlightWord(int index)
-    {
-        //add rich text color tags to word at index
-
-        //clear tags in case we are switching from one word to another
-        decodeText.text = rawText;
-
-        //text of target word
-        string targetWord = decodeText.textInfo.wordInfo[index].GetWord();
-
-        //check if we have highlighted a decoded word by comparing substrings of rawText and trueText
-        string colorTag = "white";
-        if (CheckWord(index))
-        {
-            colorTag = "red";
-        }
-
-        //update text with rich text tags
-        decodeText.text = decodeText.text.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=" + colorTag + ">" + targetWord + "</color>" + decodeText.text.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
-    }
-
     private void ScrubWord(int index, bool pos = true)
     {
         string oldWord = decodeText.textInfo.wordInfo[index].GetWord();
