@@ -77,8 +77,10 @@ public class DecodeScript : MonoBehaviour
         decodeText.text = rawText;
         List<int> correctWords = new List<int>();
 
+        TMP_TextInfo myInfo = decodeText.GetTextInfo(rawText);
+
         //find correct words
-        for(int i = 0; i < decodeText.textInfo.wordCount; i++)
+        for(int i = 0; i < myInfo.wordCount; i++)
         {
             if (CheckWord(i))
             {
@@ -89,20 +91,20 @@ public class DecodeScript : MonoBehaviour
         //construct new string to paste into UI
         string construct = "";
 
-        for (int i = 0; i < decodeText.textInfo.wordCount; i++)
+        for (int i = 0; i < myInfo.wordCount; i++)
         {
             //check for leading characters
             string leading = "";
             if(i > 0)
             {
-                int previousWordEndIndex = decodeText.textInfo.wordInfo[i - 1].lastCharacterIndex + 1;
-                leading = rawText.Substring(previousWordEndIndex, (decodeText.textInfo.wordInfo[i].firstCharacterIndex - previousWordEndIndex));
+                int previousWordEndIndex = myInfo.wordInfo[i - 1].lastCharacterIndex + 1;
+                leading = rawText.Substring(previousWordEndIndex, (myInfo.wordInfo[i].firstCharacterIndex - previousWordEndIndex));
             }
             construct += leading;
 
             //add either plain text of word or highlight-tagged text of word
-            string thisWord = decodeText.textInfo.wordInfo[i].GetWord();
-            if(highlightedWord == i)
+            string thisWord = myInfo.wordInfo[i].GetWord();
+            if (highlightedWord == i)
             {
                 if (correctWords.Contains(i))
                 {
@@ -115,16 +117,16 @@ public class DecodeScript : MonoBehaviour
                     thisWord = "<color=white>" + thisWord + "</color>";
                 }
             }
-            else if(correctWords.Contains(i))
+            else if (correctWords.Contains(i))
             {
                 thisWord = "<color=#800000>" + thisWord + "</color>";
             }
             construct += thisWord;
 
             //if this is the last word, check for trailing characters
-            if(i == decodeText.textInfo.wordCount - 1)
+            if(i == myInfo.wordCount - 1)
             {
-                construct += rawText.Substring(decodeText.textInfo.wordInfo[i].lastCharacterIndex + 1);
+                construct += rawText.Substring(myInfo.wordInfo[i].lastCharacterIndex + 1);
             }
 
             decodeText.text = construct;
@@ -169,17 +171,9 @@ public class DecodeScript : MonoBehaviour
             }
         }
 
-        //update rawText
+        //update text
         rawText = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + newWord + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
-
-        //check if we have scrubbed to a decoded word by comparing substrings of rawText and trueText
-        string colorTag = "white";
-        if(CheckWord(index))
-        {
-            colorTag = "red";
-        }
-
-        decodeText.text = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + "<color=" + colorTag + ">" + newWord + "</color>" + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
+        UpdateTextHighlights(index);
     }
 
     private bool CheckWord(int index)
