@@ -40,13 +40,13 @@ public class DecodeScript : MonoBehaviour
                 //if starting highlight:
                 if (hoverWord != -1)
                 {
-                    HighlightWord(hoverWord);
+                    UpdateTextHighlights(true, hoverWord);
                 }
 
                 //if ending highlight:
                 else
                 {
-                    decodeText.text = rawText;
+                    UpdateTextHighlights(false);
                 }
 
                 lastHovered = hoverWord;
@@ -68,6 +68,66 @@ public class DecodeScript : MonoBehaviour
                     ScrubWord(hoverWord, false);
                 }
             }
+        }
+    }
+
+    private void UpdateTextHighlights(bool startingHighlight, int highlightedWord = -1)
+    {
+        //check if each word is decoded and set color accordingly
+        decodeText.text = rawText;
+        List<int> correctWords = new List<int>();
+
+        //find correct words
+        for(int i = 0; i < decodeText.textInfo.wordCount; i++)
+        {
+            if (CheckWord(i))
+            {
+                correctWords.Add(i);
+            }
+        }
+
+        //construct new string to paste into UI
+        string construct = "";
+
+        for (int i = 0; i < decodeText.textInfo.wordCount; i++)
+        {
+            //check for leading characters
+            string leading = "";
+            if(i > 0)
+            {
+                int previousWordEndIndex = decodeText.textInfo.wordInfo[i - 1].lastCharacterIndex + 1;
+                leading = rawText.Substring(previousWordEndIndex, (decodeText.textInfo.wordInfo[i].firstCharacterIndex - previousWordEndIndex));
+            }
+            construct += leading;
+
+            //add either plain text of word or highlight-tagged text of word
+            string thisWord = decodeText.textInfo.wordInfo[i].GetWord();
+            if(highlightedWord == i)
+            {
+                if (correctWords.Contains(i))
+                {
+                    //highlight red
+                    thisWord = "<color=red>" + thisWord + "</color>";
+                }
+                else
+                {
+                    //highlight white
+                    thisWord = "<color=white>" + thisWord + "</color>";
+                }
+            }
+            else if(correctWords.Contains(i))
+            {
+                thisWord = "<color=#800000>" + thisWord + "</color>";
+            }
+            construct += thisWord;
+
+            //if this is the last word, check for trailing characters
+            if(i == decodeText.textInfo.wordCount - 1)
+            {
+                construct += rawText.Substring(decodeText.textInfo.wordInfo[i].lastCharacterIndex + 1);
+            }
+
+            decodeText.text = construct;
         }
     }
 
