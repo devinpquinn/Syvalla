@@ -18,12 +18,6 @@ public class DecodeScript : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(DoScramble());
-    }
-
-    IEnumerator DoScramble()
-    {
-        yield return new WaitForEndOfFrame();
         InitialScramble();
     }
 
@@ -59,13 +53,13 @@ public class DecodeScript : MonoBehaviour
 
                 if (scroll > 0)
                 {
-                    //scrub letters positive
-                    ScrubWord(hoverWord);
+                    //scrub letters negative
+                    ScrubWord(hoverWord, false);
                 }
                 else if (scroll < 0)
                 {
-                    //scrub letters negative
-                    ScrubWord(hoverWord, false);
+                    //scrub letters positive
+                    ScrubWord(hoverWord);
                 }
             }
         }
@@ -214,9 +208,11 @@ public class DecodeScript : MonoBehaviour
         rawText = decodeText.text;
         trueText = rawText;
 
-        for(int i = 0; i < decodeText.textInfo.wordCount; i++)
+        TMP_TextInfo myInfo = decodeText.GetTextInfo(rawText);
+
+        for(int i = 0; i < myInfo.wordCount; i++)
         {
-            string targetWord = decodeText.textInfo.wordInfo[i].GetWord();
+            string targetWord = myInfo.wordInfo[i].GetWord();
             int scrambles = Random.Range(1, 26);
 
             while(scrambles > 0)
@@ -225,7 +221,7 @@ public class DecodeScript : MonoBehaviour
                 scrambles--;
             }
 
-            rawText = rawText.Substring(0, decodeText.textInfo.wordInfo[i].firstCharacterIndex) + targetWord + rawText.Substring(decodeText.textInfo.wordInfo[i].lastCharacterIndex + 1);
+            rawText = rawText.Substring(0, myInfo.wordInfo[i].firstCharacterIndex) + targetWord + rawText.Substring(myInfo.wordInfo[i].lastCharacterIndex + 1);
         }
 
         decodeText.text = rawText;
