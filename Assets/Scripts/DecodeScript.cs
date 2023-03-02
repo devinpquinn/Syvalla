@@ -40,13 +40,13 @@ public class DecodeScript : MonoBehaviour
                 //if starting highlight:
                 if (hoverWord != -1)
                 {
-                    UpdateTextHighlights(true, hoverWord);
+                    UpdateTextHighlights(hoverWord);
                 }
 
                 //if ending highlight:
                 else
                 {
-                    UpdateTextHighlights(false);
+                    UpdateTextHighlights();
                 }
 
                 lastHovered = hoverWord;
@@ -71,7 +71,7 @@ public class DecodeScript : MonoBehaviour
         }
     }
 
-    private void UpdateTextHighlights(bool startingHighlight, int highlightedWord = -1)
+    private void UpdateTextHighlights(int highlightedWord = -1)
     {
         //check if each word is decoded and set color accordingly
         decodeText.text = rawText;
