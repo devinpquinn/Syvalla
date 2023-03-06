@@ -18,6 +18,12 @@ public class DecodeScript : MonoBehaviour
 
     //particle effect
     public GameObject blood;
+    private Transform particleFloor;
+
+    private void Awake()
+    {
+        particleFloor = decodeText.transform.parent.Find("BloodFloor");
+    }
 
     private void OnEnable()
     {
@@ -121,6 +127,17 @@ public class DecodeScript : MonoBehaviour
                         //spawn blood
                         GameObject myBlood = Instantiate(blood, decodeText.transform.parent);
                         myBlood.transform.localPosition = wordCenter;
+
+                        //set particle system properties
+                        ParticleSystem myParticles = myBlood.GetComponent<ParticleSystem>();
+                        int myLetters = myWord.characterCount;
+
+                        ParticleSystem.ShapeModule myShape = myParticles.shape;
+                        myShape.scale = new Vector3((float)0.6f * myLetters, 0.75f, 1);
+
+                        myParticles.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 12 * myLetters) });
+
+                        myParticles.collision.AddPlane(particleFloor);
                     }
                 }
                 else
