@@ -135,9 +135,12 @@ public class DecodeScript : MonoBehaviour
                         ParticleSystem.ShapeModule myShape = myParticles.shape;
                         myShape.scale = new Vector3((float)0.6f * myLetters, 0.75f, 1);
 
-                        myParticles.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 12 * myLetters) });
+                        myParticles.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 24 * myLetters) });
 
                         myParticles.collision.AddPlane(particleFloor);
+
+                        //pause for emphasis
+                        StartCoroutine(LockPause(0.5f));
                     }
                 }
                 else
@@ -160,6 +163,13 @@ public class DecodeScript : MonoBehaviour
 
             decodeText.text = construct;
         }
+    }
+
+    IEnumerator LockPause(float duration)
+    {
+        locked = true;
+        yield return new WaitForSeconds(duration);
+        locked = false;
     }
 
     private void ScrubWord(int index, bool pos = true)
