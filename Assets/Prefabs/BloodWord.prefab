@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9047653060981641389}
   - component: {fileID: 9047653060981641388}
   - component: {fileID: 9047653060981641391}
+  - component: {fileID: 8728796776481365731}
   m_Layer: 5
   m_Name: BloodWord
   m_TagString: Untagged
@@ -4872,3 +4873,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8728796776481365731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047653060981641390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9124df9d6637f4e9f09a2d5debbc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 1.5
