@@ -16,6 +16,9 @@ public class DecodeScript : MonoBehaviour
     //blocks mouse interaction
     private bool locked = true;
 
+    //particle effect
+    public GameObject blood;
+
     private void OnEnable()
     {
         InitialScramble();
@@ -65,7 +68,7 @@ public class DecodeScript : MonoBehaviour
         }
     }
 
-    private void UpdateTextHighlights(int highlightedWord = -1)
+    private void UpdateTextHighlights(int highlightedWord = -1, bool scrolled = false)
     {
         //check if each word is decoded and set color accordingly
         decodeText.text = rawText;
@@ -104,6 +107,21 @@ public class DecodeScript : MonoBehaviour
                 {
                     //highlight red
                     thisWord = "<color=red>" + thisWord + "</color>";
+
+                    //check if we just scrolled to a correct word
+                    if (scrolled)
+                    {
+                        //find center of word
+                        TMP_WordInfo myWord = myInfo.wordInfo[i];
+                        Vector3 wordBottomLeft = myInfo.characterInfo[myWord.firstCharacterIndex].bottomLeft;
+                        Vector3 wordTopRight = myInfo.characterInfo[myWord.lastCharacterIndex].topRight;
+                        Vector3 wordCenter = Vector3.Lerp(wordBottomLeft, wordTopRight, 0.5f);
+                        Debug.Log(wordCenter.ToString());
+
+                        //spawn blood
+                        GameObject myBlood = Instantiate(blood, decodeText.transform.parent);
+                        myBlood.transform.localPosition = wordCenter;
+                    }
                 }
                 else
                 {
@@ -167,7 +185,7 @@ public class DecodeScript : MonoBehaviour
 
         //update text
         rawText = rawText.Substring(0, decodeText.textInfo.wordInfo[index].firstCharacterIndex) + newWord + rawText.Substring(decodeText.textInfo.wordInfo[index].lastCharacterIndex + 1);
-        UpdateTextHighlights(index);
+        UpdateTextHighlights(index, true);
     }
 
     private bool CheckWord(int index)
