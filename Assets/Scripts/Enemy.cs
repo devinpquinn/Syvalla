@@ -94,7 +94,11 @@ public class Enemy : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
 
         //death animation
+        anim.SetBool("Dead", true);
 
+        //hide blood drips
+
+        //spawn blood splash
 
         //end combat
         CombatScript.combat.EndCombat();
