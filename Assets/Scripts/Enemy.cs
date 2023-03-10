@@ -97,6 +97,10 @@ public class Enemy : MonoBehaviour
         anim.SetBool("Dead", true);
 
         //hide blood drips
+        foreach(ParticleSystem drip in transform.GetComponentsInChildren<ParticleSystem>())
+        {
+            drip.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 0f) });
+        }
 
         //spawn blood splash
 
