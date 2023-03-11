@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     //fx stuff
     public GameObject bloodDrip;
+    public GameObject bloodSplash;
 
     private void Awake()
     {
@@ -102,10 +103,14 @@ public class Enemy : MonoBehaviour
             drip.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 0f) });
         }
 
-        //spawn blood splash
-
         //end combat
         CombatScript.combat.EndCombat();
+    }
+
+    public void BloodSplash()
+    {
+        //spawn blood splash
+        Instantiate(bloodSplash, transform);
     }
 
     public void Attack()

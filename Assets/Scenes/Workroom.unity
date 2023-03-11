@@ -1089,8 +1089,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 9.552039e-10, z: -1.9104929e-10, w: 1}
-  m_LocalPosition: {x: -0.00000002844288, y: 1.5, z: -18}
+  m_LocalRotation: {x: 0, y: 9.626859e-10, z: -1.9254576e-10, w: 1}
+  m_LocalPosition: {x: -0.00000002859252, y: 1.5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2156,6 +2156,7 @@ MonoBehaviour:
   currentHP: 100
   camTarget: {fileID: 0}
   bloodDrip: {fileID: 244993191609292074, guid: fe1fbed7160a2db4faec14b556aa3bc9, type: 3}
+  bloodSplash: {fileID: 2035566308505712107, guid: 8edebb20de3cf814b8a5756a6160ae2d, type: 3}
 --- !u!95 &994756213
 Animator:
   serializedVersion: 4
@@ -2729,7 +2730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533527761}
   m_LocalRotation: {x: -0, y: 6.2350125e-13, z: -1.247058e-13, w: 1}
-  m_LocalPosition: {x: -1.2470025e-11, y: -4.7616684e-21, z: -2.3807284e-20}
+  m_LocalPosition: {x: -1.2470025e-11, y: -4.7989905e-21, z: -2.3993886e-20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

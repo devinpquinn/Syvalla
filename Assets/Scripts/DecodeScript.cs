@@ -122,7 +122,6 @@ public class DecodeScript : MonoBehaviour
                         Vector3 wordBottomLeft = myInfo.characterInfo[myWord.firstCharacterIndex].bottomLeft;
                         Vector3 wordTopRight = myInfo.characterInfo[myWord.lastCharacterIndex].topRight;
                         Vector3 wordCenter = Vector3.Lerp(wordBottomLeft, wordTopRight, 0.5f);
-                        Debug.Log(wordCenter.ToString());
 
                         //spawn blood
                         GameObject myBlood = Instantiate(blood, decodeText.transform.parent);
