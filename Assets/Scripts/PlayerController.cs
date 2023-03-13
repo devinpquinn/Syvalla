@@ -252,6 +252,18 @@ public class PlayerController : MonoBehaviour
         line.endColor = Color.clear;
     }
 
+    public void Die()
+    {
+        //death animation
+        anim.Play("PlayerDie");
+    }
+
+    //snap to black and then reload level
+    public void AfterDeath()
+    {
+
+    }
+
     public void SetAnimBool(string key, bool value)
     {
         anim.SetBool(key, value);

@@ -124,6 +124,15 @@ public class Enemy : MonoBehaviour
         //kill player
         PlayerController.Instance.state = PlayerController.playerState.Dead;
         Debug.Log("Player killed!");
+
+        //animation
+        anim.SetBool("Attacking", true);
+    }
+
+    //animation event
+    public void Hit()
+    {
+        PlayerController.Instance.Die();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
