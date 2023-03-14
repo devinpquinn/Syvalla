@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outlined
+  m_Name: Outlined_Cat
   m_Shader: {fileID: -6465566751694194690, guid: fd64e9c9cd8f60e47949d435eb0cd276, type: 3}
   m_ValidKeywords:
   - CORNERS_ON
@@ -53,7 +53,7 @@ Material:
     m_Floats:
     - CORNERS: 1
     - _EnableExternalAlpha: 0
-    - _OutlineThickness: 0.5
+    - _OutlineThickness: 0.75
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
