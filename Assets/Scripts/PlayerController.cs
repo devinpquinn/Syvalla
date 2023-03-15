@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -256,12 +257,18 @@ public class PlayerController : MonoBehaviour
     {
         //death animation
         anim.Play("PlayerDie");
+
+        //death transition
+        StartCoroutine(DeathTransition());
     }
 
-    //snap to black and then reload level
-    public void AfterDeath()
+    //snap to black, hold, and then reload level
+    IEnumerator DeathTransition()
     {
-
+        yield return new WaitForSeconds(0.5f);
+        Fade.FadeEffect();
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SetAnimBool(string key, bool value)
