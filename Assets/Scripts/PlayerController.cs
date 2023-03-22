@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     //interaction camera stuff
     private CinemachineVirtualCamera vcam;
     public CinemachineTargetGroup targetGroup;
+    private CinemachineBasicMultiChannelPerlin shakeNoise;
 
     //camera transition values
     private float camTightSize = 7f;
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         //variable fetching and setting
         rb = GetComponent<Rigidbody2D>();
         vcam = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
+        shakeNoise = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         anim = GetComponent<Animator>();
 
@@ -225,13 +227,16 @@ public class PlayerController : MonoBehaviour
 
         //end point
         float offsetX = -0.25f;
-        //Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, line.GetPosition(0).y, 0);
         Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, 1.5f, 0);
         line.SetPosition(1, targetPos);
 
         //spawn blood spray
         GameObject blood = Instantiate(bloodSpray, targetPos, Quaternion.identity);
         blood.GetComponent<ParticleSystem>().emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 24f * damageMult) });
+
+        //shake camera
+        float baseShake = 2.5f;
+        ShakeCamera(baseShake * damageMult, 0.1f);
 
         //fade color
         StartCoroutine(FadeArrowTrail());
@@ -315,6 +320,23 @@ public class PlayerController : MonoBehaviour
     {
         //resize player camera radius
         targetGroup.m_Targets[0].radius = targetSize;
+    }
+
+    public void ShakeCamera(float intensity, float duration)
+    {
+        StartCoroutine(DoCameraShake(intensity, duration));
+    }
+
+    IEnumerator DoCameraShake(float intensity, float duration)
+    {
+        float timer = 0;
+        while(timer < duration)
+        {
+            shakeNoise.m_AmplitudeGain = Mathf.Lerp(intensity, 0, timer / duration);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        shakeNoise.m_AmplitudeGain = 0;
     }
 
 }
