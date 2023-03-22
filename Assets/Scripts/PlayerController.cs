@@ -263,6 +263,9 @@ public class PlayerController : MonoBehaviour
         //death animation
         anim.Play("PlayerDie");
 
+        //screenshake
+        ShakeCamera(6f, 0.1f);
+
         //death transition
         StartCoroutine(DeathTransition());
     }
