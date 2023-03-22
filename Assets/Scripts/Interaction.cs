@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
         //animate out pip
         if (gameObject.GetComponent<InteractPip>() != null)
         {
-            gameObject.GetComponent<Animator>().Play("PipSelected");
+            gameObject.GetComponent<Animator>().SetBool("Selected", true);
         }
 
         //animate camera in

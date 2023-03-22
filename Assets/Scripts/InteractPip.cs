@@ -10,7 +10,7 @@ public class InteractPip : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GetComponent<Animator>().enabled = true;
+            GetComponent<Animator>().SetBool("InRange", true);
 
             if (translation)
             {
@@ -29,7 +29,7 @@ public class InteractPip : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GetComponent<Animator>().Play("PipExit");
+            GetComponent<Animator>().SetBool("InRange", false);
 
             if (translation)
             {
