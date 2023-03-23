@@ -58,16 +58,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        //singleton
+        //aggressive singleton
         if(player != null && player != this)
         {
-            Destroy(gameObject);
+            Destroy(player);
         }
-        else
-        {
-            player = this;
-
-        }
+        player = this;
 
         //variable fetching and setting
         rb = GetComponent<Rigidbody2D>();

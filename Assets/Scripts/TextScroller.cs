@@ -7,6 +7,7 @@ public class TextScroller : MonoBehaviour
 {
     //plain line text
     private string rawText = "";
+
     //tmp
     private TextMeshProUGUI uiText;
 
@@ -31,7 +32,7 @@ public class TextScroller : MonoBehaviour
 
     private void Awake()
     {
-        uiText = PlayerController.Instance.bottomText;
+        uiText = GetComponent<TextMeshProUGUI>();
         textSource = GetComponent<AudioSource>();
     }
 
