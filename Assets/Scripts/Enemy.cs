@@ -111,6 +111,9 @@ public class Enemy : MonoBehaviour
     {
         //spawn blood splash
         Instantiate(bloodSplash, transform);
+
+        //screenshake
+        PlayerController.Instance.ShakeCamera(3, 0.1f);
     }
 
     public void Attack()
