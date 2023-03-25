@@ -202,6 +202,13 @@ public class PlayerController : MonoBehaviour
         state = PlayerController.playerState.Normal;
         translation = null;
         anim.SetBool("Translating", false);
+
+        //cleanup particles
+        foreach(ParticleSystem ps in decodeInterface.transform.Find("DecodePanel").GetComponentsInChildren<ParticleSystem>())
+        {
+            var coll = ps.collision;
+            coll.enabled = false;
+        }
     }
 
     public void SetupCombat()
