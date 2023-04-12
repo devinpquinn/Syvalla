@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
             {
                 turnbackDisplay.SetActive(true);
                 state = playerState.Turning;
+                anim.Play("PlayerIdleFlipped");
             }
 
             //petting trigger
@@ -148,6 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 turnbackDisplay.SetActive(false);
                 state = playerState.Normal;
+                anim.Play("PlayerIdle");
             }
         }
     }
