@@ -120,8 +120,10 @@ public class PlayerController : MonoBehaviour
             //petting trigger
             if (Input.GetKeyDown(KeyCode.S))
             {
-                anim.Play("PlayerPet");
                 state = playerState.Petting;
+                anim.Play("PlayerIdleFlipped");
+                
+                //set variable in cat to move within petting range
             }
         }
         else if(state == playerState.Interacting)
@@ -281,7 +283,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //called from animation event
-    public void EndPetting()
+    public void SetNormal()
     {
         state = playerState.Normal;
     }

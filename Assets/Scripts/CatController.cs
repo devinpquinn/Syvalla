@@ -18,8 +18,10 @@ public class CatController : MonoBehaviour
     private Animator anim;
 
     //distance triggers
-    private float minOffset = 1f;
+    private bool gettingPet = false;
+    private float minOffset = 1.5f;
     private float maxOffset = 2f;
+    private float petOffset = 1f;
 
     //storage and retrieval stuff
     private static CatController cat;
