@@ -123,8 +123,9 @@ public class PlayerController : MonoBehaviour
             {
                 state = playerState.Petting;
                 anim.Play("PlayerIdleFlipped");
-                
+
                 //set variable in cat to move within petting range
+                CatController.Instance.SetPettingState(true);
             }
         }
         else if(state == playerState.Interacting)
@@ -285,9 +286,10 @@ public class PlayerController : MonoBehaviour
     }
 
     //called from animation event
-    public void SetNormal()
+    public void EndPetting()
     {
         state = playerState.Normal;
+        CatController.Instance.SetPettingState(false);
     }
 
     //snap to black, hold, and then reload level

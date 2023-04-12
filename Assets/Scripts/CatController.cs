@@ -50,13 +50,17 @@ public class CatController : MonoBehaviour
         state = catState.Idle;
     }
 
+    public void SetPettingState(bool petting)
+    {
+        gettingPet = petting;
+    }
 
     private void FixedUpdate()
     {
         if (state == catState.Moving)
         {
             //check distance to see if we should stop moving
-            if (PlayerController.Instance.transform.position.x - transform.position.x > minOffset)
+            if (PlayerController.Instance.transform.position.x - transform.position.x > (gettingPet ? petOffset : minOffset))
             {
                 //movement
                 rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
@@ -66,18 +70,24 @@ public class CatController : MonoBehaviour
                 //we've caught up
                 state = catState.Idle;
                 anim.SetBool("Moving", false);
+
+                //set player proximity notice
+                PlayerController.Instance.SetAnimBool("CatNearby", true);
             }
 
         }
         else if (state == catState.Idle)
         {
             //check distance to see if we should start moving
-            if (PlayerController.Instance.transform.position.x - transform.position.x > maxOffset)
+            if (PlayerController.Instance.transform.position.x - transform.position.x > (gettingPet ? petOffset : maxOffset))
             {
                 //start moving
                 moveSpeed = PlayerController.Instance.moveSpeed;
                 state = catState.Moving;
                 anim.SetBool("Moving", true);
+
+                //set player proximity notice
+                PlayerController.Instance.SetAnimBool("CatNearby", false);
             }
         }
     }
