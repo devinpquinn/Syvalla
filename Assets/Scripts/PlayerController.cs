@@ -290,6 +290,7 @@ public class PlayerController : MonoBehaviour
     {
         state = playerState.Normal;
         CatController.Instance.SetPettingState(false);
+        //play regular cat idle animation
     }
 
     //snap to black, hold, and then reload level
