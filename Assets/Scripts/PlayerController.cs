@@ -116,6 +116,13 @@ public class PlayerController : MonoBehaviour
                 turnbackDisplay.SetActive(true);
                 state = playerState.Turning;
             }
+
+            //petting trigger
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                anim.Play("PlayerPet");
+                state = playerState.Petting;
+            }
         }
         else if(state == playerState.Interacting)
         {
@@ -271,6 +278,12 @@ public class PlayerController : MonoBehaviour
 
         //death transition
         StartCoroutine(DeathTransition());
+    }
+
+    //called from animation event
+    public void EndPetting()
+    {
+        state = playerState.Normal;
     }
 
     //snap to black, hold, and then reload level
