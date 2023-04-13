@@ -115,14 +115,14 @@ public class PlayerController : MonoBehaviour
             {
                 turnbackDisplay.SetActive(true);
                 state = playerState.Turning;
-                anim.Play("PlayerIdleFlipped");
+                anim.Play("PlayerLookBack");
             }
 
             //petting trigger
             if (Input.GetKeyDown(KeyCode.S))
             {
                 state = playerState.Petting;
-                anim.Play("PlayerIdleFlipped");
+                anim.Play("PlayerPspsps");
 
                 //set variable in cat to move within petting range
                 CatController.Instance.SetPettingState(true);
