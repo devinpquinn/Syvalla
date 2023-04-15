@@ -13,6 +13,9 @@ public class DecodeScript : MonoBehaviour
 
     private int lastHovered = -1;
 
+    //animation
+    private Animator anim;
+
     //blocks mouse interaction
     private bool locked = true;
 
@@ -22,6 +25,7 @@ public class DecodeScript : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         particleFloor = decodeText.transform.parent.Find("BloodFloor");
     }
 
@@ -117,6 +121,9 @@ public class DecodeScript : MonoBehaviour
                     //check if we just scrolled to a correct word
                     if (scrolled)
                     {
+                        //play panel animation
+                        anim.Play("TranslationPulse", -1, 0);
+
                         //find center of word
                         TMP_WordInfo myWord = myInfo.wordInfo[i];
                         Vector3 wordBottomLeft = myInfo.characterInfo[myWord.firstCharacterIndex].bottomLeft;
