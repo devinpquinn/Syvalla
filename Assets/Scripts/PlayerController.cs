@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public playerState state;
 
+    private bool paused = false;
+
     //movement stuff
     private Rigidbody2D rb;
     public float moveSpeed = 2f;
@@ -48,6 +50,9 @@ public class PlayerController : MonoBehaviour
     public Translation translation;
     public DecodeScript decodeInterface;
     private TextMeshProUGUI decodeText;
+
+    //pause stuff
+    public GameObject pauseUI;
 
     //turnback stuff
     public GameObject turnbackDisplay;
@@ -152,6 +157,23 @@ public class PlayerController : MonoBehaviour
                 state = playerState.Normal;
                 anim.Play("PlayerIdle");
             }
+        }
+
+        //check for pause
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                pauseUI.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                pauseUI.SetActive(true);
+                Time.timeScale = 0;
+            }
+
+            paused = !paused;
         }
     }
 
