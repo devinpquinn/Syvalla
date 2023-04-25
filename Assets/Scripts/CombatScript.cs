@@ -57,6 +57,10 @@ public class CombatScript : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerController.Instance.paused)
+        {
+            return;
+        }
         if(state == CombatState.Ready)
         {
             if ((Input.GetKeyDown(KeyCode.W) && letterBrain.currentLetter == "W") 

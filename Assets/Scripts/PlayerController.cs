@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public playerState state;
 
-    private bool paused = false;
+    [HideInInspector]
+    public bool paused = false;
 
     //movement stuff
     private Rigidbody2D rb;
@@ -89,6 +90,24 @@ public class PlayerController : MonoBehaviour
         //animation variables
         anim.SetBool("Moving", false);
 
+        //check for pause state
+        if (paused)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Unpause();
+            }
+            else
+            {
+                return;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+            return;
+        }
+
         if (state == playerState.Normal)
         {
             //movement vector
@@ -158,23 +177,21 @@ public class PlayerController : MonoBehaviour
                 anim.Play("PlayerIdle");
             }
         }
+    }
 
-        //check for pause
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (paused)
-            {
-                pauseUI.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                pauseUI.SetActive(true);
-                Time.timeScale = 0;
-            }
+    public static void Pause()
+    {
+        Instance.pauseUI.SetActive(true);
+        Time.timeScale = 0;
+        Instance.paused = true;
+        return;
+    }
 
-            paused = !paused;
-        }
+    public static void Unpause()
+    {
+        Instance.pauseUI.SetActive(false);
+        Time.timeScale = 1;
+        Instance.paused = false;
     }
 
     private void FixedUpdate()
