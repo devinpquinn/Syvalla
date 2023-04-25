@@ -6,6 +6,6 @@ public class PauseMenu : MonoBehaviour
 {
     public void Resume()
     {
-        PlayerController.Unpause();
+        PlayerController.Instance.Unpause();
     }
 }

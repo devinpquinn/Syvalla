@@ -57,10 +57,12 @@ public class CombatScript : MonoBehaviour
 
     private void Update()
     {
+        //pause check
         if (PlayerController.Instance.paused)
         {
             return;
         }
+
         if(state == CombatState.Ready)
         {
             if ((Input.GetKeyDown(KeyCode.W) && letterBrain.currentLetter == "W") 
@@ -85,11 +87,24 @@ public class CombatScript : MonoBehaviour
                 || (Input.GetKeyUp(KeyCode.Q) && letterBrain.currentLetter == "Q"))
             {
                 //release bow
-                bowBrain.StartRelease();
-                state = CombatState.Waiting;
-
-                DealDamage(bowBrain.damageMult);
+                ReleaseBow();
             }
+        }
+    }
+
+    public void ReleaseBow()
+    {
+        bowBrain.StartRelease();
+        state = CombatState.Waiting;
+
+        DealDamage(bowBrain.damageMult);
+    }
+
+    public static void Unpaused()
+    {
+        if(instance.state == CombatState.Drawing)
+        {
+            instance.ReleaseBow();
         }
     }
 

@@ -179,19 +179,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public static void Pause()
+    public void Pause()
     {
-        Instance.pauseUI.SetActive(true);
+        pauseUI.SetActive(true);
         Time.timeScale = 0;
-        Instance.paused = true;
-        return;
+        paused = true;
     }
 
-    public static void Unpause()
+    public void Unpause()
     {
-        Instance.pauseUI.SetActive(false);
+        pauseUI.SetActive(false);
         Time.timeScale = 1;
-        Instance.paused = false;
+        paused = false;
+
+        //make sure turnback is disabled
+        if (state == playerState.Turning)
+        {
+            turnbackDisplay.SetActive(false);
+            state = playerState.Normal;
+            anim.Play("PlayerIdle");
+        }
+
+        //release bow if it was drawn
+        CombatScript.Unpaused();
     }
 
     private void FixedUpdate()
