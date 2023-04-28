@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bloodSpray;
 
     //translation stuff
+    public Texture2D pointer;
     [HideInInspector]
     public Translation translation;
     public DecodeScript decodeInterface;
@@ -83,6 +84,11 @@ public class PlayerController : MonoBehaviour
         line = GetComponent<LineRenderer>();
 
         decodeText = decodeInterface.transform.Find("DecodePanel").Find("DecodeText").GetComponent<TextMeshProUGUI>();
+
+        //set cursor
+        Cursor.SetCursor(pointer, new Vector2(0, 0), CursorMode.Auto);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -184,6 +190,10 @@ public class PlayerController : MonoBehaviour
         pauseUI.SetActive(true);
         Time.timeScale = 0;
         paused = true;
+
+        //enable cursor
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Unpause()
@@ -191,6 +201,10 @@ public class PlayerController : MonoBehaviour
         pauseUI.SetActive(false);
         Time.timeScale = 1;
         paused = false;
+
+        //disable cursor
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //make sure turnback is disabled
         if (state == playerState.Turning)
@@ -256,6 +270,10 @@ public class PlayerController : MonoBehaviour
         state = playerState.Translating;
 
         anim.SetBool("Translating", true);
+
+        //show cursor
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void EndTranslation()
@@ -270,6 +288,10 @@ public class PlayerController : MonoBehaviour
             var coll = ps.collision;
             coll.enabled = false;
         }
+
+        //hide cursor
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void SetupCombat()
