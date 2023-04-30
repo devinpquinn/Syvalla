@@ -91,7 +91,6 @@ public class Enemy : MonoBehaviour
     {
         //die
         state = enemyState.Dead;
-        Debug.Log("Enemy killed!");
         GetComponent<BoxCollider2D>().enabled = false;
 
         //death animation
@@ -126,7 +125,6 @@ public class Enemy : MonoBehaviour
 
         //kill player
         PlayerController.Instance.state = PlayerController.playerState.Dead;
-        Debug.Log("Player killed!");
 
         //animation
         anim.SetBool("Attacking", true);

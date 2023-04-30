@@ -13,16 +13,12 @@ public class Fade : MonoBehaviour
 
     private void Awake()
     {
-        //singleton
+        //aggressive singleton
         if (fade != null && fade != this)
         {
-            Destroy(gameObject);
+            Destroy(fade);
         }
-        else
-        {
-            fade = this;
-
-        }
+        fade = this;
 
         anim = GetComponent<Animator>();
     }

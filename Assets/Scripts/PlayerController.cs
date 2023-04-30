@@ -91,6 +91,12 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void Start()
+    {
+        //set checkpoint
+        PlayerPrefs.SetString("Checkpoint", SceneManager.GetActiveScene().name);
+    }
+
     private void Update()
     {
         //animation variables
@@ -370,7 +376,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Fade.FadeEffect();
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(PlayerPrefs.GetString("Checkpoint"));
     }
 
     public void SetAnimBool(string key, bool value)
