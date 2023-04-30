@@ -21,4 +21,9 @@ public class MainMenuManager : MonoBehaviour
     {
         options.SetActive(false);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
