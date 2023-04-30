@@ -28,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Checkpoint"))
         {
+            //todo: overwrite warning?
             SceneManager.LoadScene(PlayerPrefs.GetString("Checkpoint"));
         }
         else

@@ -355,7 +355,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1540690558}
+      - m_Target: {fileID: 392569134}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 0
@@ -920,6 +920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 392569133}
+  - component: {fileID: 392569134}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -950,6 +951,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &392569134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392569132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8996bdae333fc044a8233b6df51b054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: -3883428126339194057, guid: dae2d37ea03391443890405efa197819, type: 2}
+  musicMixer: {fileID: 3391412345616108460, guid: dae2d37ea03391443890405efa197819, type: 2}
+  effectsMixer: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
+  masterSlider: {fileID: 769607787}
+  musicSlider: {fileID: 50631013}
+  effectsSlider: {fileID: 489365692}
 --- !u!1 &451804155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1297,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1540690558}
+      - m_Target: {fileID: 392569134}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: SetEffectsVolume
         m_Mode: 0
@@ -2297,7 +2316,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1540690558}
+      - m_Target: {fileID: 392569134}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: SetMasterVolume
         m_Mode: 0
@@ -3865,7 +3884,6 @@ GameObject:
   - component: {fileID: 1540690555}
   - component: {fileID: 1540690557}
   - component: {fileID: 1540690556}
-  - component: {fileID: 1540690558}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -3935,24 +3953,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540690554}
   m_CullTransparentMesh: 1
---- !u!114 &1540690558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540690554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8996bdae333fc044a8233b6df51b054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterMixer: {fileID: 24300002, guid: dae2d37ea03391443890405efa197819, type: 2}
-  musicMixer: {fileID: 8503818246667956343, guid: dae2d37ea03391443890405efa197819, type: 2}
-  effectsMixer: {fileID: -3387912092649760128, guid: dae2d37ea03391443890405efa197819, type: 2}
-  masterSlider: {fileID: 769607787}
-  musicSlider: {fileID: 50631013}
-  effectsSlider: {fileID: 489365692}
 --- !u!1 &1612635437
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,7 +4945,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1540690558}
+      - m_Target: {fileID: 392569134}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: ResetVolume
         m_Mode: 1
