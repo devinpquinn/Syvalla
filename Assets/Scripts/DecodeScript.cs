@@ -286,6 +286,10 @@ public class DecodeScript : MonoBehaviour
     public void Unlock()
     {
         locked = false;
+
+        //show cursor
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     //called from animation event
