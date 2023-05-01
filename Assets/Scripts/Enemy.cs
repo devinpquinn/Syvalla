@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private float damageInterval = 0.5f;
+    private Color baseColor;
 
     //health stuff
     public float maxHP;
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         currentHP = maxHP;
         camTarget = transform.Find("Enemy Camera Target");
+        baseColor = GetComponent<SpriteRenderer>().color;
     }
 
     public void Activate()
@@ -79,12 +81,12 @@ public class Enemy : MonoBehaviour
 
         while(timer < damageInterval)
         {
-            sprite.color = Color.Lerp(Color.red, Color.white, (timer / damageInterval));
+            sprite.color = Color.Lerp(Color.red, baseColor, (timer / damageInterval));
             timer += Time.deltaTime;
             yield return null;
         }
 
-        sprite.color = Color.white;
+        sprite.color = baseColor;
     }
 
     public void Die()
