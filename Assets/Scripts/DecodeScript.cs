@@ -141,7 +141,7 @@ public class DecodeScript : MonoBehaviour
                         ParticleSystem.ShapeModule myShape = myParticles.shape;
                         myShape.scale = new Vector3((float)0.6f * myLetters, 0.75f, 1);
 
-                        myParticles.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 48 * myLetters) });
+                        myParticles.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 96 * myLetters) });
 
                         myParticles.collision.AddPlane(particleFloor);
 
