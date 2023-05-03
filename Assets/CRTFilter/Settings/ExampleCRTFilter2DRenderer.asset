@@ -73,17 +73,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   shader: {fileID: 4800000, guid: 6f2fcdc189458914eb8a323f19e3a27b, type: 3}
-  preset: 3
-  pixelResolutionX: 290
-  pixelResolutionY: 210
-  screenBend: 6.5
+  preset: 6
+  pixelResolutionX: 440
+  pixelResolutionY: 360
+  screenBend: 3
   screenOverscan: 0.5
-  blur: 0.8
+  blur: 0
   bleed: 0
   smidge: 0
   scanlinesStrength: 2.8
   apertureStrength: 1
-  shadowlines: 3.5
+  shadowlines: 0
   shadowlinesSpeed: 0.5
   shadowlinesAlpha: 0.1
   noiseSize: 0
@@ -93,12 +93,12 @@ MonoBehaviour:
   vignetteSmooth: 2.8
   vignetteRound: 30
   brightness: 0
-  contrast: 1.12
-  gamma: 1.18
-  red: 1.15
-  green: 1.16
-  blue: 1.18
-  chromaticAberration: 0.5
-  redOffset: {x: 0.05, y: 0.05}
-  blueOffset: {x: 0, y: -0.07}
-  greenOffset: {x: -0.05, y: 0.05}
+  contrast: 1
+  gamma: 1
+  red: 1
+  green: 1
+  blue: 1
+  chromaticAberration: 0.25
+  redOffset: {x: 0.025, y: 0.025}
+  blueOffset: {x: 0, y: -0.035}
+  greenOffset: {x: -0.025, y: 0.025}
