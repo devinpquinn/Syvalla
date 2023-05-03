@@ -84,12 +84,12 @@ MonoBehaviour:
   scanlinesStrength: 2.8
   apertureStrength: 1
   shadowlines: 0
-  shadowlinesSpeed: 0.5
-  shadowlinesAlpha: 0.1
+  shadowlinesSpeed: 0
+  shadowlinesAlpha: 0
   noiseSize: 0
   noiseSpeed: 0
   noiseAlpha: 0
-  vignetteSize: 5.7
+  vignetteSize: 0
   vignetteSmooth: 2.8
   vignetteRound: 30
   brightness: 0
