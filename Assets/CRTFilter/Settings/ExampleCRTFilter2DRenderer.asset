@@ -77,8 +77,8 @@ MonoBehaviour:
   pixelResolutionX: 440
   pixelResolutionY: 360
   screenBend: 4
-  screenOverscan: 0.5
-  blur: 0
+  screenOverscan: 0
+  blur: 0.5
   bleed: 0
   smidge: 0
   scanlinesStrength: 2.8
