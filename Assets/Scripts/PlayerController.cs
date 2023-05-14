@@ -314,7 +314,7 @@ public class PlayerController : MonoBehaviour
         line.SetPosition(0, startPos);
 
         //end point
-        float offsetX = -0.25f;
+        float offsetX = -0.125f;
         Vector3 targetPos = new Vector3(enemy.gameObject.transform.position.x + offsetX, 1.5f, 0);
         line.SetPosition(1, targetPos);
 
