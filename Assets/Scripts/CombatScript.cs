@@ -41,6 +41,7 @@ public class CombatScript : MonoBehaviour
     {
         state = CombatState.Ready;
         enemy = PlayerController.Instance.enemy;
+        hpBrain.Reset();
         combatInterface.SetActive(true);
     }
 

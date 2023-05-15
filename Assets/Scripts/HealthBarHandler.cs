@@ -8,6 +8,13 @@ public class HealthBarHandler : MonoBehaviour
     public Image barPrimary;
     public Image barSecondary;
 
+    public void Reset()
+    {
+        StopAllCoroutines();
+        barPrimary.fillAmount = 1;
+        barSecondary.fillAmount = 1;
+    }
+
     public void UpdateHP(float fraction)
     {
         StopAllCoroutines();
