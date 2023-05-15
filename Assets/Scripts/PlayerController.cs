@@ -208,9 +208,12 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
         paused = false;
 
-        //disable cursor
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //disable cursor if not in translation
+        if(state != playerState.Translating)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         //make sure turnback is disabled
         if (state == playerState.Turning)
