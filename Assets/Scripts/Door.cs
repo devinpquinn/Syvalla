@@ -22,7 +22,8 @@ public class Door : MonoBehaviour
     IEnumerator DoDoor()
     {
         Fade.FadeEffect();
-        yield return new WaitForSeconds(0.5f);
+        PlayerController.Instance.state = PlayerController.playerState.Locked;
+        yield return new WaitForSecondsRealtime(0.5f);
         SceneManager.LoadScene(TargetScene);
     }
 }
