@@ -62,6 +62,13 @@ public class OptionsScript : MonoBehaviour
 
     public void ExitToMenu()
     {
+        StartCoroutine(DoExitToMenu());
+    }
+
+    IEnumerator DoExitToMenu()
+    {
+        Fade.FadeEffect();
+        yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1;
         SceneManager.LoadScene("Main Menu");
     }

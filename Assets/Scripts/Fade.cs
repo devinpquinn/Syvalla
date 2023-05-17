@@ -45,7 +45,7 @@ public class Fade : MonoBehaviour
         while (timer < timerTarget)
         {
             masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(0, 1, timer / timerTarget)) * 20);
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime;
             yield return null;
         }
 
@@ -60,11 +60,11 @@ public class Fade : MonoBehaviour
         while (timer < timerTarget)
         {
             masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(1, 0, timer / timerTarget)) * 20);
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime;
             yield return null;
         }
 
-        masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(0) * 20);
+        masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(0.0001f) * 20);
         yield return null;
     }
 
