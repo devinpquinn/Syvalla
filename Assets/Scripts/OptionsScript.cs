@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class OptionsScript : MonoBehaviour
 {
     public AudioMixerGroup masterMixer;
-    public AudioMixerGroup musicMixer;
-    public AudioMixerGroup effectsMixer;
 
     public Slider masterSlider;
     public Slider musicSlider;
@@ -40,13 +38,13 @@ public class OptionsScript : MonoBehaviour
 
     public void SetMusicVolume(float sliderValue)
     {
-        musicMixer.audioMixer.SetFloat("volumeMusic", Mathf.Log10(sliderValue) * 20);
+        masterMixer.audioMixer.SetFloat("volumeMusic", Mathf.Log10(sliderValue) * 20);
         PlayerPrefs.SetFloat("Volume_Music", sliderValue);
     }
 
     public void SetEffectsVolume(float sliderValue)
     {
-        effectsMixer.audioMixer.SetFloat("volumeEffects", Mathf.Log10(sliderValue) * 20);
+        masterMixer.audioMixer.SetFloat("volumeEffects", Mathf.Log10(sliderValue) * 20);
         PlayerPrefs.SetFloat("Volume_Effects", sliderValue);
     }
 

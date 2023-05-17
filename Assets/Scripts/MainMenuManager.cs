@@ -26,6 +26,13 @@ public class MainMenuManager : MonoBehaviour
 
     public void NewGame()
     {
+        StartCoroutine(DoNewGame());
+    }
+
+    IEnumerator DoNewGame()
+    {
+        Fade.FadeEffect();
+        yield return new WaitForSeconds(0.5f);
         if (PlayerPrefs.HasKey("Checkpoint"))
         {
             //todo: overwrite warning?

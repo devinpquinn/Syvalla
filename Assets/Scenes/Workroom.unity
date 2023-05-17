@@ -860,10 +860,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3365842772111113321, guid: 6be37f589f1a72c43bc79c1d828796ea, type: 3}
-      propertyPath: fadeInAtStart
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3365842773869209684, guid: 6be37f589f1a72c43bc79c1d828796ea, type: 3}
       propertyPath: m_Name
       value: FadeCanvas
@@ -1401,7 +1397,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 629515643
-  m_SortingOrder: 3001
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!224 &474925915
 RectTransform:
@@ -1437,8 +1433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterMixer: {fileID: -3883428126339194057, guid: dae2d37ea03391443890405efa197819, type: 2}
-  musicMixer: {fileID: 3391412345616108460, guid: dae2d37ea03391443890405efa197819, type: 2}
-  effectsMixer: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   masterSlider: {fileID: 769607787}
   musicSlider: {fileID: 50631013}
   effectsSlider: {fileID: 489365692}
@@ -2420,6 +2414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56099acc8a793448b107508d3d86ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trueMasterMixer: {fileID: 24300002, guid: dae2d37ea03391443890405efa197819, type: 2}
 --- !u!1 &738924133
 GameObject:
   m_ObjectHideFlags: 0
