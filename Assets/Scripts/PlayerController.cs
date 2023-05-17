@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     //state stuff
-    public enum playerState { Normal, Turning, Interacting, Translating, Petting, Fighting, Dead, Locked };
+    public enum playerState { Normal, Turning, Interacting, Translating, Petting, Fighting, Dead, Locked, AutoMove };
 
     public playerState state;
 
@@ -189,6 +189,11 @@ public class PlayerController : MonoBehaviour
                 anim.Play("PlayerIdle");
             }
         }
+        else if (state == playerState.AutoMove)
+        {
+            anim.SetBool("Moving", true);
+            return;
+        }
     }
 
     public void Pause()
@@ -233,6 +238,11 @@ public class PlayerController : MonoBehaviour
         {
             //player movement
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+        else if (state == playerState.AutoMove)
+        {
+            //auto movement
+            rb.MovePosition(rb.position + new Vector2(1, 0) * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
