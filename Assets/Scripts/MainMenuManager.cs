@@ -15,7 +15,10 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        //set cursor
         Cursor.SetCursor(pointer, new Vector2(0, 0), CursorMode.Auto);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         //check for continue option
         if (PlayerPrefs.HasKey("Checkpoint"))
