@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     //animation stuff
     private Animator anim;
 
+    //audio stuff
+    public FootstepManager step;
+
     //interaction stuff
     [HideInInspector]
     public Interaction interaction;
@@ -449,6 +452,16 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         shakeNoise.m_AmplitudeGain = 0;
+    }
+
+    public void Step()
+    {
+        step.PlaySound();
+    }
+
+    public void SwitchStep(FootstepManager.groundMaterial newMat)
+    {
+        step.SwitchSound(newMat);
     }
 
 }
