@@ -34,14 +34,14 @@ public class Fade : MonoBehaviour
         else
         {
             //ensure master audio is set to 1
-            masterMixer.audioMixer.SetFloat("volumeTrueMaster", 1);
+            masterMixer.audioMixer.SetFloat("volumeTrueMaster", 0);
         }
     }
 
     IEnumerator EaseAudioIn()
     {
         //if the player died while music was off, ensure music is on
-        masterMixer.audioMixer.SetFloat("volumeTrueMusic", 1);
+        masterMixer.audioMixer.SetFloat("volumeTrueMusic", 0);
 
         float timer = 0;
         float timerTarget = 0.5f;
@@ -52,7 +52,7 @@ public class Fade : MonoBehaviour
             yield return null;
         }
 
-        masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(1) * 20);
+        masterMixer.audioMixer.SetFloat("volumeTrueMaster", 0);
         yield return null;
     }
 

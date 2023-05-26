@@ -19,7 +19,7 @@ public class AreaCardHandler : MonoBehaviour
     IEnumerator EaseAudio()
     {
         //if the player died while music was off, ensure music is on
-        trueMasterMixer.audioMixer.SetFloat("volumeTrueMusic", 1);
+        trueMasterMixer.audioMixer.SetFloat("volumeTrueMusic", 0);
 
         float timer = 0;
         float timerTarget = 0.5f;
