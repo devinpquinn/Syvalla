@@ -40,11 +40,14 @@ public class Fade : MonoBehaviour
 
     IEnumerator EaseAudioIn()
     {
+        //if the player died while music was off, ensure music is on
+        masterMixer.audioMixer.SetFloat("volumeTrueMusic", 1);
+
         float timer = 0;
         float timerTarget = 0.5f;
         while (timer < timerTarget)
         {
-            masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(0, 1, timer / timerTarget)) * 20);
+            masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(0.0001f, 1, timer / timerTarget)) * 20);
             timer += Time.unscaledDeltaTime;
             yield return null;
         }

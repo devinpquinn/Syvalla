@@ -121,6 +121,8 @@ AudioMixerController:
     name: volumeEffects
   - guid: 42294c307679f904b8499db0b035b995
     name: volumeTrueMaster
+  - guid: b9711d4810ee37a40a3c5932827b3530
+    name: volumeTrueMusic
   m_AudioMixerGroupViews:
   - guids:
     - f3ee83ea1bdcdea4dbb003979d2e8798
