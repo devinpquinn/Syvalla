@@ -36,20 +36,26 @@ public class MainMenuManager : MonoBehaviour
     {
         Fade.FadeEffect();
         yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(startScene);
+    }
+
+    public void ContinueGame()
+    {
+        StartCoroutine(DoContinueGame());
+    }
+
+    IEnumerator DoContinueGame()
+    {
+        Fade.FadeEffect();
+        yield return new WaitForSeconds(0.5f);
         if (PlayerPrefs.HasKey("Checkpoint"))
         {
-            //todo: overwrite warning?
             SceneManager.LoadScene(PlayerPrefs.GetString("Checkpoint"));
         }
         else
         {
             SceneManager.LoadScene(startScene);
         }
-    }
-
-    public void ContinueGame()
-    {
-        SceneManager.LoadScene(PlayerPrefs.GetString("Checkpoint"));
     }
 
     public void ShowOptions()
