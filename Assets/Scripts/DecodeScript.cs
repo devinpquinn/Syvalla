@@ -23,6 +23,11 @@ public class DecodeScript : MonoBehaviour
     public GameObject blood;
     private Transform particleFloor;
 
+    //audio
+    public AudioSource src;
+    public AudioClip scrollSound;
+    public AudioClip correctSound;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -147,12 +152,23 @@ public class DecodeScript : MonoBehaviour
 
                         //pause for emphasis
                         StartCoroutine(LockPause(0.5f));
+
+                        //play success scrolling sound
+                        src.PlayOneShot(correctSound);
+
+                        //particle system will also make sound; should it depend on how many letters it covers?
                     }
                 }
                 else
                 {
                     //highlight white
                     thisWord = "<color=white>" + thisWord + "</color>";
+
+                    if (scrolled)
+                    {
+                        //play normal scrolling sound
+                        src.PlayOneShot(scrollSound);
+                    }
                 }
             }
             else if (correctWords.Contains(i))
