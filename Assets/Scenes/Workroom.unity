@@ -3116,8 +3116,8 @@ MonoBehaviour:
   rawText: 
   blood: {fileID: 9047653060981641390, guid: 5dbe64229f605da419570af3b38785b8, type: 3}
   src: {fileID: 1880077074}
-  scrollSound: {fileID: 8300000, guid: 849130eab9c8a3d4cb3f6c732c59279a, type: 3}
-  correctSound: {fileID: 8300000, guid: e4732fd912a210048a1615cd0a1852df, type: 3}
+  scrollSound: {fileID: 8300000, guid: 8973d43c1a27f4d4aac08f7b9e1ba9ec, type: 3}
+  correctSound: {fileID: 8300000, guid: 68222e1d0f17f0941b5072921370af20, type: 3}
 --- !u!95 &746916599
 Animator:
   serializedVersion: 4

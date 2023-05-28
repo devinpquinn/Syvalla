@@ -167,7 +167,8 @@ public class DecodeScript : MonoBehaviour
                     if (scrolled)
                     {
                         //play normal scrolling sound
-                        src.PlayOneShot(scrollSound);
+                        src.clip = scrollSound;
+                        src.Play();
                     }
                 }
             }
