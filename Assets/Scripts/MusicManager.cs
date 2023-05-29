@@ -41,7 +41,7 @@ public class MusicManager : MonoBehaviour
         float timer = 0;
         while (timer < duration)
         {
-            masterMixer.audioMixer.SetFloat("volumeTrueMusic", Mathf.Log10(Mathf.Lerp(1, 0, timer / duration)) * 20);
+            masterMixer.audioMixer.SetFloat("volumeTrueMusic", Mathf.Log10(Mathf.Lerp(1, 0.0001f, timer / duration)) * 20);
             timer += Time.unscaledDeltaTime;
             yield return null;
         }

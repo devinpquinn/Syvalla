@@ -62,7 +62,7 @@ public class Fade : MonoBehaviour
         float timerTarget = 0.5f;
         while (timer < timerTarget)
         {
-            masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(1, 0, timer / timerTarget)) * 20);
+            masterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(1, 0.0001f, timer / timerTarget)) * 20);
             timer += Time.unscaledDeltaTime;
             yield return null;
         }

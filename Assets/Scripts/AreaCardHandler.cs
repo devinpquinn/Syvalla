@@ -25,7 +25,7 @@ public class AreaCardHandler : MonoBehaviour
         float timerTarget = 0.5f;
         while(timer < timerTarget)
         {
-            trueMasterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(0, 1, timer / timerTarget)) * 20);
+            trueMasterMixer.audioMixer.SetFloat("volumeTrueMaster", Mathf.Log10(Mathf.Lerp(0.0001f, 1, timer / timerTarget)) * 20);
             timer += Time.deltaTime;
             yield return null;
         }
