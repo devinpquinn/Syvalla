@@ -35,6 +35,9 @@ public class Combat : MonoBehaviour
     public void Danger(bool value)
     {
         PlayerController.Instance.SetAnimBool("Danger", value);
+
+        //player draws or stows bow
+        PlayerController.Instance.bowSound.Stow(!value);
     }
 
     public void StartCombatCamera()
@@ -96,5 +99,6 @@ public class Combat : MonoBehaviour
 
         //stow bow
         PlayerController.Instance.SetAnimBool("Danger", false);
+        PlayerController.Instance.bowSound.Stow(true);
     }
 }

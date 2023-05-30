@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     //audio stuff
     public FootstepManager step;
+    public BowSoundManager bowSound;
 
     //interaction stuff
     [HideInInspector]
