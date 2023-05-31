@@ -27,6 +27,7 @@ public class DecodeScript : MonoBehaviour
     public AudioSource src;
     public AudioClip scrollSound;
     public AudioClip correctSound;
+    public AudioClip closeSound;
 
     private void Awake()
     {

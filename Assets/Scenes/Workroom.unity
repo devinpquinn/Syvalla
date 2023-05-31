@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 307041900}
   - component: {fileID: 307041899}
   m_Layer: 0
-  m_Name: Bow
+  m_Name: Bow Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1414,7 +1414,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3265,6 +3265,7 @@ MonoBehaviour:
   src: {fileID: 1880077074}
   scrollSound: {fileID: 8300000, guid: 8973d43c1a27f4d4aac08f7b9e1ba9ec, type: 3}
   correctSound: {fileID: 8300000, guid: 68222e1d0f17f0941b5072921370af20, type: 3}
+  closeSound: {fileID: 8300000, guid: 1ca90136018066e47a2074891a59425f, type: 3}
 --- !u!95 &746916599
 Animator:
   serializedVersion: 4
@@ -6319,7 +6320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1543486369
 MonoBehaviour:
   m_ObjectHideFlags: 0
