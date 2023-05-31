@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     //audio stuff
     public FootstepManager step;
+    public CatSoundManager catSound;
     public BowSoundManager bowSound;
 
     //interaction stuff
@@ -373,6 +374,12 @@ public class PlayerController : MonoBehaviour
 
         //death transition
         StartCoroutine(DeathTransition());
+    }
+
+    //called from animation event
+    public void CatPetSound()
+    {
+        catSound.Purr();
     }
 
     //called from animation event
