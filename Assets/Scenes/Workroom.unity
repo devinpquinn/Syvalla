@@ -1399,8 +1399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1ef3099fe13374aa371809fc2e1911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unstowClip: {fileID: 8300000, guid: e4732fd912a210048a1615cd0a1852df, type: 3}
-  stowClip: {fileID: 8300000, guid: 849130eab9c8a3d4cb3f6c732c59279a, type: 3}
+  unstowClip: {fileID: 8300000, guid: 3781b5d6a7060cc4283543bdf4a50d5a, type: 3}
+  stowClip: {fileID: 8300000, guid: c9699129b40b91c469023a8b7f695bd2, type: 3}
 --- !u!82 &307041900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1413,7 +1413,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4559,7 +4559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  maxHP: 100
+  maxHP: 50
   currentHP: 100
   camTarget: {fileID: 0}
   bloodDrip: {fileID: 244993191609292074, guid: fe1fbed7160a2db4faec14b556aa3bc9, type: 3}
