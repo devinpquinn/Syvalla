@@ -6907,7 +6907,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 45dba652ad5b80043839cdc9314d8620, type: 3}
   - {fileID: 8300000, guid: e3f5e6e622a630946991172e2baf84b9, type: 3}
   - {fileID: 8300000, guid: 9ba2762129400cc43ab555e5a9c73fa9, type: 3}
-  hissClips: []
+  hissClips:
+  - {fileID: 8300000, guid: 0e800717cd91bda4db8ec00e7504caef, type: 3}
+  - {fileID: 8300000, guid: fb228f754bca6174d8757685224b9f05, type: 3}
 --- !u!82 &1758013300
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9729,7 +9731,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3391412345616108460, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 8300000, guid: ed4fe1d28e8c1724191d3efb64c7fb7a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0

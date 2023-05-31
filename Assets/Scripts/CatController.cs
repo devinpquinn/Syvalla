@@ -96,4 +96,10 @@ public class CatController : MonoBehaviour
     {
         anim.SetBool("Danger", dangerous);
     }
+
+    //called from animation event
+    public void Hiss()
+    {
+        PlayerController.Instance.catSound.Hiss();
+    }
 }
