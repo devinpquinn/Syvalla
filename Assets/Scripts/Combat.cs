@@ -27,7 +27,7 @@ public class Combat : MonoBehaviour
                 CatController.Instance.SetDanger(true);
 
                 //fade out music
-                MusicManager.EaseMusic(1, false);
+                MusicManager.EaseMusic(3, false);
             }
         }
     }
@@ -98,7 +98,7 @@ public class Combat : MonoBehaviour
         CatController.Instance.SetDanger(false);
 
         //ease music in
-        MusicManager.EaseMusic(1);
+        MusicManager.EaseMusic(3);
 
         //stow bow
         PlayerController.Instance.SetAnimBool("Danger", false);
