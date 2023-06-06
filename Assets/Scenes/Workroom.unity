@@ -1806,10 +1806,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b4a51ed105959fe4d916798e41d716a0, type: 3}
   - {fileID: 8300000, guid: 01addb1fcff241a4f898edd1a482f3fc, type: 3}
   backClips:
-  - {fileID: 8300000, guid: eba03ba5f38ef214e85d7446b965a72a, type: 3}
-  - {fileID: 8300000, guid: 1175100744efc83469d4a10c46fe1e8b, type: 3}
   - {fileID: 8300000, guid: 2a5deb0e2617eb4439a8de4c74b37ea5, type: 3}
+  - {fileID: 8300000, guid: eba03ba5f38ef214e85d7446b965a72a, type: 3}
   - {fileID: 8300000, guid: ea65e42cfc51a99429d1a1c10451bf27, type: 3}
+  - {fileID: 8300000, guid: 1175100744efc83469d4a10c46fe1e8b, type: 3}
 --- !u!1 &438755687
 GameObject:
   m_ObjectHideFlags: 0
