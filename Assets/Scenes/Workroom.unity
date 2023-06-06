@@ -1800,11 +1800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontClips:
-  - {fileID: 8300000, guid: ff6cded4b75f4f74fb7e1a8e5d539972, type: 3}
-  - {fileID: 8300000, guid: 89d34b5bb92977a4da48453ec5297dc9, type: 3}
-  - {fileID: 8300000, guid: 0c63a840cc393ab42b03f077b60a0f7a, type: 3}
-  - {fileID: 8300000, guid: b4a51ed105959fe4d916798e41d716a0, type: 3}
-  - {fileID: 8300000, guid: 01addb1fcff241a4f898edd1a482f3fc, type: 3}
+  - {fileID: 8300000, guid: ca5e773ed2f9b744488000b4a0be27a3, type: 3}
+  - {fileID: 8300000, guid: 7833817f11ce02e498136e4a1fd6a842, type: 3}
+  - {fileID: 8300000, guid: bc8cedf05862bd84883f232b11eff431, type: 3}
+  - {fileID: 8300000, guid: 37c972e91f4889e498f89b2bebcfd406, type: 3}
   backClips:
   - {fileID: 8300000, guid: 2a5deb0e2617eb4439a8de4c74b37ea5, type: 3}
   - {fileID: 8300000, guid: eba03ba5f38ef214e85d7446b965a72a, type: 3}
@@ -7921,7 +7920,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 8300000, guid: 702afd912b5f6dd4c8eb12611ddfae74, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
