@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     private float damageInterval = 0.5f;
     private Color baseColor;
 
+    //audio stuff
+    private EnemyFootstepManager efm;
+
     //health stuff
     public float maxHP;
     [HideInInspector]
@@ -42,6 +45,7 @@ public class Enemy : MonoBehaviour
         currentHP = maxHP;
         camTarget = transform.Find("Enemy Camera Target");
         baseColor = GetComponent<SpriteRenderer>().color;
+        efm = Transform.FindObjectOfType<EnemyFootstepManager>();
     }
 
     public void Activate()
@@ -136,6 +140,17 @@ public class Enemy : MonoBehaviour
     public void Hit()
     {
         PlayerController.Instance.Die();
+    }
+
+    //animation events
+    public void StepFront()
+    {
+        efm.PlaySound(true);
+    }
+
+    public void StepBack()
+    {
+        efm.PlaySound(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
