@@ -7,6 +7,11 @@ public class BowHandler : MonoBehaviour
 {
     private Animator anim;
 
+    //audio
+    public AudioSource src;
+    public AudioClip drawClip;
+    public List<AudioClip> releaseClips;
+
     public BowButtonHandler letterButton;
     public TextMeshProUGUI multText;
 
@@ -25,6 +30,9 @@ public class BowHandler : MonoBehaviour
         PlayerController.Instance.SetAnimBool("Drawing", true);
 
         letterButton.StartHighlight();
+
+        //start playing draw audio
+        src.PlayOneShot(drawClip);
     }
 
     public void SetDamageMult(float mult)
@@ -55,6 +63,9 @@ public class BowHandler : MonoBehaviour
         
         multText.gameObject.SetActive(false);
         multText.gameObject.SetActive(true);
+
+        //get appropriate release sound for damage mult
+        src.Stop();
     }
 
     //bow finished firing, animate out letter

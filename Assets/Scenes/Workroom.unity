@@ -3165,6 +3165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435554949b043a341be3728fcb4c03c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 307041900}
+  drawClip: {fileID: 8300000, guid: 7039d30d21c1f494ca9563278028d6b6, type: 3}
+  releaseClips: []
   letterButton: {fileID: 1381666195}
   multText: {fileID: 846246768}
   damageMult: 0.1
@@ -4713,7 +4716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  maxHP: 50
+  maxHP: 100
   currentHP: 100
   camTarget: {fileID: 0}
   bloodDrip: {fileID: 244993191609292074, guid: fe1fbed7160a2db4faec14b556aa3bc9, type: 3}
