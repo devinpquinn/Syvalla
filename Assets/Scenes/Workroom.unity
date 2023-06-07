@@ -3170,7 +3170,7 @@ MonoBehaviour:
   releaseClips:
   - {fileID: 8300000, guid: f2ebe16016abbca47b18665078044b68, type: 3}
   - {fileID: 8300000, guid: 16990607914a81c4ea050a2641103087, type: 3}
-  - {fileID: 8300000, guid: 16990607914a81c4ea050a2641103087, type: 3}
+  - {fileID: 8300000, guid: 325b9377dc6ef2d46ac8aa1daaa9972f, type: 3}
   letterButton: {fileID: 1381666195}
   multText: {fileID: 846246768}
   damageMult: 0.1
