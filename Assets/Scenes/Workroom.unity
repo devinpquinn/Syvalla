@@ -1422,8 +1422,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 15
+  MinDistance: 99
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1703,7 +1703,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.12
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3166,8 +3166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   src: {fileID: 307041900}
-  drawClip: {fileID: 8300000, guid: 7039d30d21c1f494ca9563278028d6b6, type: 3}
-  releaseClips: []
+  drawClip: {fileID: 8300000, guid: 33619b55c3cfd1c44b982005d8e8fdd9, type: 3}
+  releaseClips:
+  - {fileID: 8300000, guid: f2ebe16016abbca47b18665078044b68, type: 3}
+  - {fileID: 8300000, guid: 16990607914a81c4ea050a2641103087, type: 3}
+  - {fileID: 8300000, guid: 16990607914a81c4ea050a2641103087, type: 3}
   letterButton: {fileID: 1381666195}
   multText: {fileID: 846246768}
   damageMult: 0.1
@@ -7078,7 +7081,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7086,8 +7089,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 15
+  MinDistance: 99
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

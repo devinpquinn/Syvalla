@@ -66,7 +66,18 @@ public class BowHandler : MonoBehaviour
 
         //get appropriate release sound for damage mult
         src.Stop();
-        src.PlayOneShot(releaseClips[0]);
+        if(damageMult > 1)
+        {
+            src.PlayOneShot(releaseClips[2]);
+        }
+        else if(damageMult >= 0.8)
+        {
+            src.PlayOneShot(releaseClips[1]);
+        }
+        else
+        {
+            src.PlayOneShot(releaseClips[0]);
+        }
     }
 
     //bow finished firing, animate out letter
