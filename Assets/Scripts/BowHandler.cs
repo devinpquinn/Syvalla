@@ -8,7 +8,7 @@ public class BowHandler : MonoBehaviour
     private Animator anim;
 
     //audio
-    public AudioSource src;
+    public AudioSource bowSrc;
     public AudioClip drawClip;
     public List<AudioClip> releaseClips;
 
@@ -32,7 +32,7 @@ public class BowHandler : MonoBehaviour
         letterButton.StartHighlight();
 
         //start playing draw audio
-        src.PlayOneShot(drawClip);
+        bowSrc.PlayOneShot(drawClip);
     }
 
     public void SetDamageMult(float mult)
@@ -65,18 +65,18 @@ public class BowHandler : MonoBehaviour
         multText.gameObject.SetActive(true);
 
         //get appropriate release sound for damage mult
-        src.Stop();
+        bowSrc.Stop();
         if(damageMult > 1)
         {
-            src.PlayOneShot(releaseClips[2]);
+            bowSrc.PlayOneShot(releaseClips[2]);
         }
         else if(damageMult >= 0.8)
         {
-            src.PlayOneShot(releaseClips[1]);
+            bowSrc.PlayOneShot(releaseClips[1]);
         }
         else
         {
-            src.PlayOneShot(releaseClips[0]);
+            bowSrc.PlayOneShot(releaseClips[0]);
         }
     }
 

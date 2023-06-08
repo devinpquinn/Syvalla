@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     //audio stuff
     private EnemyFootstepManager efm;
+    private AudioSource bodySrc;
+    public List<AudioClip> hitClips;
 
     //health stuff
     public float maxHP;
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour
         camTarget = transform.Find("Enemy Camera Target");
         baseColor = GetComponent<SpriteRenderer>().color;
         efm = Transform.FindObjectOfType<EnemyFootstepManager>();
+        bodySrc = transform.Find("Enemy Audio").GetComponent<AudioSource>();
     }
 
     public void Activate()
@@ -65,6 +68,20 @@ public class Enemy : MonoBehaviour
 
         //bleed
         Instantiate(bloodDrip, this.transform);
+
+        //audio
+        if (mult > 1)
+        {
+            bodySrc.PlayOneShot(hitClips[2]);
+        }
+        else if (mult >= 0.8)
+        {
+            bodySrc.PlayOneShot(hitClips[1]);
+        }
+        else
+        {
+            bodySrc.PlayOneShot(hitClips[0]);
+        }
     }
 
     IEnumerator DoDamage()
