@@ -24,6 +24,12 @@ public class Enemy : MonoBehaviour
     private EnemyFootstepManager efm;
     private AudioSource bodySrc;
     public List<AudioClip> hitClips;
+    private AudioSource bellowSrc;
+    public List<AudioClip> bellowClips;
+    private int lastBellow = -1;
+    private float minBellowDelay = 0.2f;
+    private float maxBellowDelay = 0.5f;
+    private Coroutine bellowRoutine = null;
 
     //health stuff
     public float maxHP;
@@ -49,6 +55,7 @@ public class Enemy : MonoBehaviour
         baseColor = GetComponent<SpriteRenderer>().color;
         efm = Transform.FindObjectOfType<EnemyFootstepManager>();
         bodySrc = transform.Find("Enemy Audio").GetComponent<AudioSource>();
+        bellowSrc = transform.Find("Bellow").GetComponent<AudioSource>();
     }
 
     public void Activate()
@@ -56,6 +63,9 @@ public class Enemy : MonoBehaviour
         //start moving toward player
         state = enemyState.Moving;
         anim.SetBool("Moving", true);
+
+        //growl
+        bellowRoutine = StartCoroutine(DoBellow());
     }
 
     public void Damage(float mult)
@@ -81,6 +91,24 @@ public class Enemy : MonoBehaviour
         else
         {
             bodySrc.PlayOneShot(hitClips[0]);
+        }
+
+        bellowRoutine = StartCoroutine(DoBellow());
+    }
+
+    IEnumerator DoBellow()
+    {
+        float wait = Random.Range(minBellowDelay, maxBellowDelay);
+        yield return new WaitForSeconds(wait);
+        if (!bellowSrc.isPlaying)
+        {
+            int key = Random.Range(0, bellowClips.Count);
+            while (key == lastBellow)
+            {
+                key = Random.Range(0, bellowClips.Count);
+            }
+            lastBellow = key;
+            bellowSrc.PlayOneShot(bellowClips[key]);
         }
     }
 
@@ -124,6 +152,9 @@ public class Enemy : MonoBehaviour
         {
             drip.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 0f) });
         }
+
+        //audio
+        StopCoroutine(bellowRoutine);
 
         //end combat
         CombatScript.combat.EndCombat();
