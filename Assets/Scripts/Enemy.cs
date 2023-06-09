@@ -29,8 +29,8 @@ public class Enemy : MonoBehaviour
     public List<AudioClip> bellowClips;
 
     private int lastBellow = -1;
-    private float minBellowDelay = 1.5f;
-    private float maxBellowDelay = 4f;
+    private float minBellowDelay = 1.75f;
+    private float maxBellowDelay = 3.75f;
     private Coroutine bellowRoutine = null;
 
     //health stuff
