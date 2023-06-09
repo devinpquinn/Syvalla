@@ -24,11 +24,13 @@ public class Enemy : MonoBehaviour
     private EnemyFootstepManager efm;
     private AudioSource bodySrc;
     public List<AudioClip> hitClips;
+
     private AudioSource bellowSrc;
     public List<AudioClip> bellowClips;
+
     private int lastBellow = -1;
-    private float minBellowDelay = 0.2f;
-    private float maxBellowDelay = 0.5f;
+    private float minBellowDelay = 1.5f;
+    private float maxBellowDelay = 4f;
     private Coroutine bellowRoutine = null;
 
     //health stuff
@@ -74,7 +76,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(DoDamage());
 
         //knockback
-        transform.Translate(new Vector3(0.15f * mult, 0, 0));
+        transform.Translate(new Vector3(0.25f * mult, 0, 0));
 
         //bleed
         Instantiate(bloodDrip, this.transform);
@@ -92,24 +94,23 @@ public class Enemy : MonoBehaviour
         {
             bodySrc.PlayOneShot(hitClips[0]);
         }
-
-        bellowRoutine = StartCoroutine(DoBellow());
     }
 
     IEnumerator DoBellow()
     {
+        int key = Random.Range(0, bellowClips.Count);
+        while (key == lastBellow)
+        {
+            key = Random.Range(0, bellowClips.Count);
+        }
+        lastBellow = key;
+        bellowSrc.PlayOneShot(bellowClips[key]);
+
+        yield return new WaitUntil(() => !bellowSrc.isPlaying);
         float wait = Random.Range(minBellowDelay, maxBellowDelay);
         yield return new WaitForSeconds(wait);
-        if (!bellowSrc.isPlaying)
-        {
-            int key = Random.Range(0, bellowClips.Count);
-            while (key == lastBellow)
-            {
-                key = Random.Range(0, bellowClips.Count);
-            }
-            lastBellow = key;
-            bellowSrc.PlayOneShot(bellowClips[key]);
-        }
+
+        bellowRoutine = StartCoroutine(DoBellow());
     }
 
     IEnumerator DoDamage()
@@ -155,6 +156,7 @@ public class Enemy : MonoBehaviour
 
         //audio
         StopCoroutine(bellowRoutine);
+        bellowSrc.Stop();
 
         //end combat
         CombatScript.combat.EndCombat();
@@ -182,6 +184,10 @@ public class Enemy : MonoBehaviour
 
         //animation
         anim.SetBool("Attacking", true);
+
+        //audio
+        StopCoroutine(bellowRoutine);
+        bellowSrc.Stop();
     }
 
     //animation event

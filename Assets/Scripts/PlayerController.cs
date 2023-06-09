@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape) && state != playerState.Dead)
         {
             Pause();
             return;
