@@ -33,6 +33,8 @@ public class Enemy : MonoBehaviour
     private float maxBellowDelay = 3.75f;
     private Coroutine bellowRoutine = null;
 
+    public AudioClip deathSound;
+
     //health stuff
     public float maxHP;
     [HideInInspector]
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
     //fx stuff
     public GameObject bloodDrip;
     public GameObject bloodSplash;
+    public GameObject deathSpray;
 
     private void Awake()
     {
@@ -154,9 +157,13 @@ public class Enemy : MonoBehaviour
             drip.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 0f) });
         }
 
+        //spawn blood spray
+        Instantiate(deathSpray, transform);
+
         //audio
         StopCoroutine(bellowRoutine);
         bellowSrc.Stop();
+        bellowSrc.PlayOneShot(deathSound);
 
         //end combat
         CombatScript.combat.EndCombat();

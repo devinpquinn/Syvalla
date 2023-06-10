@@ -4988,11 +4988,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b8aa6e6d442da5c4893cea7467f281e8, type: 3}
   - {fileID: 8300000, guid: 97b0493380873f04fa47baffc208529a, type: 3}
   - {fileID: 8300000, guid: 28db505d2fad7fa46bad6fc3b6864482, type: 3}
-  maxHP: 100
+  deathSound: {fileID: 8300000, guid: f280e23cf3663e84390acb15743ea9be, type: 3}
+  maxHP: 25
   currentHP: 100
   camTarget: {fileID: 0}
   bloodDrip: {fileID: 244993191609292074, guid: fe1fbed7160a2db4faec14b556aa3bc9, type: 3}
   bloodSplash: {fileID: 2035566308505712107, guid: 8edebb20de3cf814b8a5756a6160ae2d, type: 3}
+  deathSpray: {fileID: 5237539498564961497, guid: ddf37998088364143b4229206ec2cc1a, type: 3}
 --- !u!95 &994756213
 Animator:
   serializedVersion: 4
@@ -6943,7 +6945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: f5486b05c6ce3f04abbd01c901a5a094, type: 3}
   m_Color: {r: 0.2557895, g: 0.27473685, b: 0.36, a: 1}
   m_FlipX: 0
