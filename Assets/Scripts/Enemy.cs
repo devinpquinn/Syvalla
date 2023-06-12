@@ -27,13 +27,18 @@ public class Enemy : MonoBehaviour
 
     private AudioSource bellowSrc;
     public List<AudioClip> bellowClips;
+    public AudioClip deathSound;
+    public AudioClip killSound;
 
     private int lastBellow = -1;
     private float minBellowDelay = 1.75f;
     private float maxBellowDelay = 3.75f;
     private Coroutine bellowRoutine = null;
 
-    public AudioClip deathSound;
+    //kill audio
+    private AudioSource stingSrc;
+    public AudioClip stingSound;
+    
 
     //health stuff
     public float maxHP;
@@ -59,8 +64,9 @@ public class Enemy : MonoBehaviour
         camTarget = transform.Find("Enemy Camera Target");
         baseColor = GetComponent<SpriteRenderer>().color;
         efm = Transform.FindObjectOfType<EnemyFootstepManager>();
-        bodySrc = transform.Find("Enemy Audio").GetComponent<AudioSource>();
+        bodySrc = transform.Find("Body").GetComponent<AudioSource>();
         bellowSrc = transform.Find("Bellow").GetComponent<AudioSource>();
+        stingSrc = transform.Find("Sting").GetComponent<AudioSource>();
     }
 
     public void Activate()
@@ -195,6 +201,9 @@ public class Enemy : MonoBehaviour
         //audio
         StopCoroutine(bellowRoutine);
         bellowSrc.Stop();
+        bellowSrc.PlayOneShot(killSound);
+
+        stingSrc.PlayOneShot(stingSound);
     }
 
     //animation event
