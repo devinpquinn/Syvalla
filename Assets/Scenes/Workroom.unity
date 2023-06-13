@@ -4987,11 +4987,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d1e2880d8db3aaa4181f746ee70701f8, type: 3}
   - {fileID: 8300000, guid: 70c48c5cbf317ec48b416eaa9ffb1041, type: 3}
   - {fileID: 8300000, guid: b8aa6e6d442da5c4893cea7467f281e8, type: 3}
-  - {fileID: 8300000, guid: 97b0493380873f04fa47baffc208529a, type: 3}
   - {fileID: 8300000, guid: 28db505d2fad7fa46bad6fc3b6864482, type: 3}
   deathSound: {fileID: 8300000, guid: f280e23cf3663e84390acb15743ea9be, type: 3}
   killSound: {fileID: 8300000, guid: 0e800717cd91bda4db8ec00e7504caef, type: 3}
-  stingSound: {fileID: 8300000, guid: 28db505d2fad7fa46bad6fc3b6864482, type: 3}
+  stingSound: {fileID: 8300000, guid: 97b0493380873f04fa47baffc208529a, type: 3}
   maxHP: 100
   currentHP: 100
   camTarget: {fileID: 0}
