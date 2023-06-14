@@ -4854,7 +4854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994756207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4989,7 +4989,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b8aa6e6d442da5c4893cea7467f281e8, type: 3}
   - {fileID: 8300000, guid: 28db505d2fad7fa46bad6fc3b6864482, type: 3}
   deathSound: {fileID: 8300000, guid: f280e23cf3663e84390acb15743ea9be, type: 3}
-  killSound: {fileID: 8300000, guid: 0e800717cd91bda4db8ec00e7504caef, type: 3}
+  killSound: {fileID: 8300000, guid: affdee15daf1e1b4282a74cb4b394c74, type: 3}
   stingSound: {fileID: 8300000, guid: 97b0493380873f04fa47baffc208529a, type: 3}
   maxHP: 100
   currentHP: 100
@@ -5029,7 +5029,7 @@ GameObject:
   - component: {fileID: 1045735614}
   - component: {fileID: 1045735613}
   m_Layer: 0
-  m_Name: FootstepSwitcherStone
+  m_Name: FootstepSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7749,7 +7749,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4630822044458020983, guid: dae2d37ea03391443890405efa197819, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9566,7 +9566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &120082814752704543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10138,7 +10138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3629335479063530632
 Transform:
   m_ObjectHideFlags: 0
@@ -10258,7 +10258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6217059355322137100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10924,4 +10924,4 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1

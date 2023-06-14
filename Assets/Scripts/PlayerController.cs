@@ -395,7 +395,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Fade.FadeEffect();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(PlayerPrefs.GetString("Checkpoint"));
     }
 
