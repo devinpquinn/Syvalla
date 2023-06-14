@@ -10,6 +10,8 @@ public class DecodeScript : MonoBehaviour
     [HideInInspector]
     public string rawText; //plain text of text box
     private string trueText; //stores text of decoded message for comparison
+    [HideInInspector]
+    public List<string> decodedWords = new List<string>(); //list of words that have been unscrambled at some point (for checking events)
 
     private int lastHovered = -1;
 
@@ -156,6 +158,13 @@ public class DecodeScript : MonoBehaviour
 
                         //play success scrolling sound
                         src.PlayOneShot(correctSound);
+
+                        //add to decodedWords
+                        string solvedWord = myInfo.wordInfo[i].GetWord();
+                        if (!decodedWords.Contains(solvedWord))
+                        {
+                            decodedWords.Add(solvedWord);
+                        }
                     }
                 }
                 else
@@ -274,6 +283,7 @@ public class DecodeScript : MonoBehaviour
     {
         rawText = decodeText.text;
         trueText = rawText;
+        decodedWords = new List<string>();
 
         TMP_TextInfo myInfo = decodeText.GetTextInfo(rawText);
 

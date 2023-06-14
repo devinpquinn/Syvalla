@@ -65,11 +65,9 @@ public class Translation : MonoBehaviour
         //check for event(s)
         if(onEndSpecial != null)
         {
-            string decodedText = PlayerController.Instance.decodeInterface.rawText;
-
             foreach(string key in keywords)
             {
-                if (decodedText.Contains(key))
+                if (PlayerController.Instance.decodeInterface.decodedWords.Contains(key))
                 {
                     //trigger special event
                     onEndSpecial.Invoke();

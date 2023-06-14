@@ -3674,6 +3674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decodeText: {fileID: 1084873903}
   rawText: 
+  decodedWords: []
   blood: {fileID: 9047653060981641390, guid: 5dbe64229f605da419570af3b38785b8, type: 3}
   src: {fileID: 1880077074}
   scrollSound: {fileID: 8300000, guid: 8973d43c1a27f4d4aac08f7b9e1ba9ec, type: 3}
@@ -3725,7 +3726,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -6807,7 +6808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1543486369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8086,7 +8087,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -10315,7 +10316,8 @@ MonoBehaviour:
 
     TURN BACK.'
   keywords:
-  - TURN BACK
+  - TURN
+  - BACK
   onEndNormal:
     m_PersistentCalls:
       m_Calls: []
