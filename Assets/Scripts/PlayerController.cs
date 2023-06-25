@@ -100,6 +100,15 @@ public class PlayerController : MonoBehaviour
     {
         //set checkpoint
         PlayerPrefs.SetString("Checkpoint", SceneManager.GetActiveScene().name);
+
+        //check for checkpont x
+        if (PlayerPrefs.HasKey("CheckpointX"))
+        {
+            float posX = PlayerPrefs.GetFloat("CheckpointX");
+            transform.position = new Vector2(posX, transform.position.y);
+            catSound.transform.parent.position = new Vector2(posX - 1.5f, transform.position.y);
+            PlayerPrefs.DeleteKey("CheckpointX");
+        }
     }
 
     private void Update()
@@ -396,6 +405,10 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Fade.FadeEffect();
         yield return new WaitForSeconds(3f);
+
+        //set checkpoint x
+        PlayerPrefs.SetFloat("CheckpointX", transform.position.x - 3f);
+
         SceneManager.LoadScene(PlayerPrefs.GetString("Checkpoint"));
     }
 
