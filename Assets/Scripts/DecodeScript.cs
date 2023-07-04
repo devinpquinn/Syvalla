@@ -138,6 +138,7 @@ public class DecodeScript : MonoBehaviour
                         Vector3 wordTopRight = myInfo.characterInfo[myWord.lastCharacterIndex].topRight;
                         Vector3 wordCenter = Vector3.Lerp(wordBottomLeft, wordTopRight, 0.5f);
 
+                        /*
                         //spawn blood
                         GameObject myBlood = Instantiate(blood, decodeText.transform.parent);
                         myBlood.transform.localPosition = wordCenter;
@@ -152,6 +153,7 @@ public class DecodeScript : MonoBehaviour
                         myParticles.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 72 * myLetters) });
 
                         myParticles.collision.AddPlane(particleFloor);
+                        */
 
                         //pause for emphasis
                         StartCoroutine(LockPause(0.5f));
