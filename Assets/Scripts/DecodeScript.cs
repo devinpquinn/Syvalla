@@ -205,6 +205,12 @@ public class DecodeScript : MonoBehaviour
 
     private void ScrubWord(int index, bool pos = true)
     {
+        //check if already decoded
+        if (CheckWord(index))
+        {
+            return;
+        }
+
         string oldWord = decodeText.textInfo.wordInfo[index].GetWord();
         string newWord = "";
 
