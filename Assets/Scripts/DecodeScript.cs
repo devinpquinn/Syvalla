@@ -125,7 +125,7 @@ public class DecodeScript : MonoBehaviour
                 if (correctWords.Contains(i))
                 {
                     //highlight red
-                    thisWord = "<color=red>" + thisWord + "</color>";
+                    thisWord = "<color=#FFFFB2>" + thisWord + "</color>";
 
                     //check if we just scrolled to a correct word
                     if (scrolled)
@@ -190,7 +190,7 @@ public class DecodeScript : MonoBehaviour
             }
             else if (correctWords.Contains(i))
             {
-                thisWord = "<color=#800000>" + thisWord + "</color>";
+                thisWord = "<color=#FFFFB2>" + thisWord + "</color>";
             }
             construct += thisWord;
 
