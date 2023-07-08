@@ -1408,6 +1408,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1188108200363246934, guid: bebc4d40c5b6bad49b814b7f11828a34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1188108201781623983, guid: bebc4d40c5b6bad49b814b7f11828a34, type: 3}
       propertyPath: m_Name
       value: DecodeCanvas
@@ -1499,6 +1503,10 @@ PrefabInstance:
     - target: {fileID: 1188108201781623987, guid: bebc4d40c5b6bad49b814b7f11828a34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188108202039677709, guid: bebc4d40c5b6bad49b814b7f11828a34, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 8421504
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebc4d40c5b6bad49b814b7f11828a34, type: 3}
@@ -2083,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 4791515805582849391, guid: 69384185b1167c448b9509534029120e, type: 3}
       propertyPath: m_Name
       value: TitleCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791515805582849391, guid: 69384185b1167c448b9509534029120e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791515806115676354, guid: 69384185b1167c448b9509534029120e, type: 3}
       propertyPath: m_text

@@ -165,6 +165,12 @@ public class DecodeScript : MonoBehaviour
                         {
                             decodedWords.Add(solvedWord);
                         }
+
+                        //check if all words are decoded
+                        if(decodedWords.Count == myInfo.wordCount)
+                        {
+                            anim.Play("TranslationSolved");
+                        }
                     }
                 }
                 else
