@@ -48,7 +48,7 @@ public class Translation : MonoBehaviour
     public void EndTranslation()
     {
         //animate out interface
-        PlayerController.Instance.decodeInterface.gameObject.GetComponent<Animator>().Play("TranslationDisappear");
+        PlayerController.Instance.decodeInterface.AnimateOut();
 
         //play sound cue
         PlayerController.Instance.decodeInterface.src.PlayOneShot(PlayerController.Instance.decodeInterface.closeSound);

@@ -30,6 +30,7 @@ public class DecodeScript : MonoBehaviour
     public AudioClip scrollSound;
     public AudioClip correctSound;
     public AudioClip closeSound;
+    public AudioClip solvedSound;
 
     private void Awake()
     {
@@ -170,6 +171,7 @@ public class DecodeScript : MonoBehaviour
                         if(decodedWords.Count == myInfo.wordCount)
                         {
                             anim.Play("TranslationSolved");
+                            //src.PlayOneShot(solvedSound);
                         }
                     }
                 }
@@ -334,5 +336,19 @@ public class DecodeScript : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    public void AnimateOut()
+    {
+        if (decodedWords.Count == decodeText.GetTextInfo(rawText).wordCount)
+        {
+            //animate out from complete
+            anim.Play("TranslationClose");
+        }
+        else
+        {
+            //animate out from incomplete
+            anim.Play("TranslationDisappear");
+        }
     }
 }

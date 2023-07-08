@@ -61,6 +61,7 @@ MonoBehaviour:
   scrollSound: {fileID: 8300000, guid: 8973d43c1a27f4d4aac08f7b9e1ba9ec, type: 3}
   correctSound: {fileID: 8300000, guid: e73ca6cc69adf524884b2a0804e725c3, type: 3}
   closeSound: {fileID: 8300000, guid: a21942bd70b82de4c95aeb8ef47aa13a, type: 3}
+  solvedSound: {fileID: 8300000, guid: e0ba38dead3e9c845800bd05c97ac2d6, type: 3}
 --- !u!95 &1188108200363246933
 Animator:
   serializedVersion: 4
