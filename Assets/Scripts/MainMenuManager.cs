@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
     public Texture2D pointer;
     public GameObject options;
 
-    private string startScene = "Workroom";
+    private string startScene = "I - Alien City";
 
     private void Start()
     {
