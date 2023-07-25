@@ -2857,6 +2857,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7263131464734103689, guid: f6ec837377aa19646a17fcb23fd295a0, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7263131464734103700, guid: f6ec837377aa19646a17fcb23fd295a0, type: 3}
       propertyPath: m_Name
       value: BorderCanvas
