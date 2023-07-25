@@ -86,9 +86,9 @@ MonoBehaviour:
   shadowlines: 0
   shadowlinesSpeed: 0
   shadowlinesAlpha: 0
-  noiseSize: 0
-  noiseSpeed: 0
-  noiseAlpha: 0
+  noiseSize: 50
+  noiseSpeed: 1
+  noiseAlpha: 0.05
   vignetteSize: 0
   vignetteSmooth: 2.8
   vignetteRound: 30
