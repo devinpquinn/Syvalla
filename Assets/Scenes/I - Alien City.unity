@@ -1282,6 +1282,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
       propertyPath: lines.Array.data[0]
       value: An alien city greets our approach. Block houses with no doors or windows.
         Labyrinthine streets, chasing dead ends, eating their own tails.
@@ -1293,11 +1297,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
       propertyPath: lines.Array.data[2]
-      value: . . .
+      value: '{0}. . .'
       objectReference: {fileID: 0}
     - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
       propertyPath: lines.Array.data[3]
       value: It is perfectly quiet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1806489411}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MusicIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1806489411}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Hush, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MusicOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Hush, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027516668688474087, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+      propertyPath: inLine.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
@@ -1405,6 +1465,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe708bb91103a9642ba95faeb9970194, type: 3}
+--- !u!1 &1806489405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3552765573592634828, guid: 4b172d348943ce446894cbae4ca9c105, type: 3}
+  m_PrefabInstance: {fileID: 1639740476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1806489411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806489405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e122626bfa5f3814bac42f29284dced6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1849565374 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3450675500670813458, guid: 6b82efe4a4891074db4bf641bc55e72b, type: 3}
@@ -2254,7 +2331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791515805582849391, guid: 69384185b1167c448b9509534029120e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791515806115676354, guid: 69384185b1167c448b9509534029120e, type: 3}
       propertyPath: m_text

@@ -81,14 +81,14 @@ MonoBehaviour:
   blur: 0.5
   bleed: 0
   smidge: 0
-  scanlinesStrength: 2.8
+  scanlinesStrength: 5
   apertureStrength: 1
   shadowlines: 0
   shadowlinesSpeed: 0
   shadowlinesAlpha: 0
   noiseSize: 50
   noiseSpeed: 1
-  noiseAlpha: 0.05
+  noiseAlpha: 0.04
   vignetteSize: 0
   vignetteSmooth: 2.8
   vignetteRound: 30
