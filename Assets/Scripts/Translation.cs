@@ -54,6 +54,7 @@ public class Translation : MonoBehaviour
         PlayerController.Instance.decodeInterface.src.PlayOneShot(PlayerController.Instance.decodeInterface.closeSound);
 
         //clear text
+        PlayerController.Instance.scroller.Clicked();
         PlayerController.Instance.ClearText();
 
         //reset state
